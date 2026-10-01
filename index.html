@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServiHouse | Servicio Técnico de Electrodomésticos en Quito</title>
+<meta name="description" content="ServiHouse: servicio técnico a domicilio de electrodomésticos en Quito. Reparación de lavadoras, refrigeradoras, cocinas y más, con técnicos certificados.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://servihouse.vercel.app/">
+<meta property="og:title" content="ServiHouse | Servicio Técnico de Electrodomésticos en Quito">
+<meta property="og:description" content="Servicio técnico a domicilio de electrodomésticos en Quito. Reparación rápida y garantizada.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://servihouse.vercel.app/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "ServiHouse", "description": "Servicio técnico a domicilio de electrodomésticos y línea blanca en Quito: reparación de lavadoras, refrigeradoras, cocinas, aires acondicionados y más.", "url": "https://servihouse.vercel.app/", "telephone": "+593939195170", "address": {"@type": "PostalAddress", "addressLocality": "Quito", "addressRegion": "Pichincha", "addressCountry": "EC"}, "areaServed": "Quito", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "18:00"}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2A4A;
+    --blue:#0F4C8C;
+    --teal:#12B5C9;
+    --electric:#0EA5E9;
+    --ice:#EAF3FB;
+    --white:#FFFFFF;
+    --ink:#0A1930;
+    --muted:#5A7085;
+    --line:#D8E5F0;
+    --radius:12px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--white); line-height:1.55; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.01em; color:var(--navy);}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--electric); color:#fff; font-weight:600; font-size:.95rem; padding:14px 28px; border-radius:999px; border:none; cursor:pointer; box-shadow:0 8px 20px rgba(14,165,233,.32); transition:transform .15s,box-shadow .15s;}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(14,165,233,.42);}
+  .btn.wa{background:#25D366; box-shadow:0 8px 20px rgba(37,211,102,.35);}
+  .btn.wa:hover{box-shadow:0 12px 26px rgba(37,211,102,.45);}
+  .btn.ghost{background:transparent; border:1.5px solid rgba(255,255,255,.55); color:#fff; box-shadow:none;}
+  .btn.ghost:hover{background:rgba(255,255,255,.1); border-color:#fff;}
+  section{padding:86px 0;}
+  .sec-eyebrow{font-family:'IBM Plex Mono'; font-size:.76rem; text-transform:uppercase; letter-spacing:.09em; color:var(--electric); display:inline-flex; align-items:center; gap:8px; margin-bottom:10px;}
+  .sec-eyebrow::before{ content:""; width:18px; height:1px; background:currentColor; display:inline-block; opacity:.8; }
+  .sec-head{max-width:640px; margin-bottom:46px;}
+  .sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:14px; letter-spacing:-.015em; line-height:1.15;}
+  .sec-head p{color:var(--muted); font-size:1.02rem;}
+
+  /* HEADER + LOGO */
+  header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:84px;}
+  #logo-svg{width:210px; height:52px; overflow:visible;}
+  .nav-links{display:flex; gap:30px; list-style:none;}
+  .nav-links a{font-weight:600; font-size:.92rem; color:var(--navy);}
+  @media(max-width:880px){.nav-links{display:none;}}
+  .nav-cta{display:flex; align-items:center; gap:12px;}
+  .nav-phone{font-family:'IBM Plex Mono'; font-size:.86rem; color:var(--navy); font-weight:600; display:none;}
+  @media(min-width:640px){.nav-phone{display:block;}}
+
+  /* HERO */
+  .hero{position:relative; overflow:hidden; background:linear-gradient(160deg,var(--navy) 0%, var(--blue) 55%, #123E70 100%); color:#fff; padding:100px 0 80px;}
+  .hero::before{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size:42px 42px; mask-image:radial-gradient(ellipse at 70% 30%, black 0%, transparent 70%); pointer-events:none;}
+  .hero-grid{position:relative; display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center;}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow-badge{display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:#9FD8FA; border:1px solid rgba(159,216,250,.35); padding:6px 12px; border-radius:999px; margin-bottom:22px;}
+  .blip{width:6px; height:6px; border-radius:50%; background:#4ADE80; box-shadow:0 0 8px #4ADE80;}
+  .hero h1{font-size:clamp(2rem,4.2vw,3.2rem); line-height:1.1; margin-bottom:18px; color:#fff;}
+  .hero h1 span{
+    background:linear-gradient(90deg, #7FD4FF, #22D3EE, #7FD4FF);
+    background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 4s linear infinite;
+  }
+  @keyframes shimmer{ to{ background-position:-200% center; } }
+  .hero p{color:#C7DBEC; font-size:1.06rem; max-width:480px; margin-bottom:14px;}
+  .hero .brands{color:#8FB6D9; font-size:.86rem; margin-bottom:30px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-photo{position:relative; border-radius:16px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.45);}
+  .hero-photo img{width:100%; height:380px; object-fit:cover;}
+  .hero-photo .tag{position:absolute; bottom:16px; left:16px; background:rgba(11,42,74,.75); backdrop-filter:blur(6px); color:#fff; font-size:.78rem; padding:8px 14px; border-radius:999px; font-family:'IBM Plex Mono';}
+
+  /* TRUST STRIP */
+  .trust{background:var(--ice); border-bottom:1px solid var(--line);}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); padding:24px 0;}
+  @media(max-width:820px){.trust-grid{grid-template-columns:repeat(2,1fr); gap:20px;}}
+  .trust-item{display:flex; align-items:center; gap:12px; padding:0 16px; border-left:1px solid var(--line);}
+  .trust-item:first-child{border-left:none;}
+  @media(max-width:820px){.trust-item{border-left:none;}}
+  .trust-item .ic{width:38px; height:38px; border-radius:10px; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--electric); font-size:1.1rem;}
+  .trust-item strong{display:block; font-size:.85rem; color:var(--navy);}
+  .trust-item small{color:var(--muted); font-size:.75rem;}
+
+  /* VALUE LIST */
+  .value-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media(max-width:920px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.value-grid{grid-template-columns:1fr;}}
+  .value-card{border:1px solid var(--line); border-radius:var(--radius); padding:26px; transition:transform .2s,border-color .2s;}
+  .value-card:hover{transform:translateY(-4px); border-color:var(--electric);}
+  .value-card .num{font-family:'IBM Plex Mono'; color:var(--electric); font-size:.75rem; margin-bottom:14px; display:block;}
+  .value-card h3{font-size:1.05rem; margin-bottom:8px;}
+  .value-card p{color:var(--muted); font-size:.88rem;}
+
+  /* SERVICES */
+  .svc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media(max-width:1100px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.svc-grid{grid-template-columns:1fr;}}
+  .svc-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:transform .2s,border-color .2s;}
+  .svc-card:hover{transform:translateY(-4px); border-color:var(--electric);}
+  .svc-img{width:100%; height:190px; object-fit:cover; display:block; background:var(--ice); transition:transform .6s cubic-bezier(.22,1,.36,1), filter .6s ease;}
+  .svc-card:hover .svc-img{ transform:scale(1.06); filter:saturate(1.08); }
+  .svc-card{ overflow:hidden; }
+  .svc-body{padding:24px 26px 28px;}
+  .svc-body h3{font-size:1.15rem; margin-bottom:10px;}
+  .svc-body p{color:var(--muted); font-size:.9rem;}
+  .icon-tile{width:100%; height:190px; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,var(--ice),#DCEBF7); font-size:3.2rem;}
+
+  /* GALLERY */
+  .gallery-section{background:var(--ice);}
+  .gal-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px;}
+  .gal-tab{font-family:'IBM Plex Mono'; font-size:.74rem; text-transform:uppercase; letter-spacing:.04em; padding:8px 16px; border-radius:999px; background:#fff; border:1px solid var(--line); color:var(--navy);}
+  .gal-grid{columns:3 220px; column-gap:18px;}
+  @media(max-width:700px){.gal-grid{columns:2 160px;}}
+  .gal-item{break-inside:avoid; margin-bottom:18px; border-radius:12px; overflow:hidden; position:relative; box-shadow:0 8px 20px rgba(11,42,74,.08); background:#fff; transition:box-shadow .35s ease, transform .35s ease;}
+  .gal-item:hover{ box-shadow:0 16px 34px rgba(11,42,74,.16); transform:translateY(-3px); }
+  .gal-item img{width:100%; display:block; transition:transform .6s cubic-bezier(.22,1,.36,1);}
+  .gal-item:hover img{ transform:scale(1.08); }
+  .gal-cap{padding:10px 12px; font-size:.78rem; color:var(--navy); font-weight:600; background:#fff;}
+  .gal-cap span{display:block; font-weight:400; color:var(--muted); font-size:.72rem; margin-top:2px;}
+
+  /* PROCESS */
+  .process{background:var(--navy); color:#fff;}
+  .process .sec-head p{color:#AFC7DE;}
+  .process .sec-eyebrow{color:#7FD4FF;}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:800px){.steps{grid-template-columns:1fr;}}
+  .step{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:28px 24px; position:relative;}
+  .step .s-n{font-family:'Space Grotesk'; font-weight:800; font-size:2.2rem; color:rgba(127,212,255,.35); position:absolute; top:14px; right:20px;}
+  .step h4{font-size:1.05rem; margin-bottom:10px; color:#fff;}
+  .step p{font-size:.88rem; color:#B9CDE2;}
+
+  /* TRANSPARENCY */
+  .transparency{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  @media(max-width:880px){.transparency{grid-template-columns:1fr;}}
+  .trans-card{background:var(--ice); border:1px solid var(--line); border-radius:16px; padding:34px;}
+  .trans-card h3{font-size:1.1rem; margin-bottom:16px;}
+  .trans-card p{color:var(--muted); font-size:.94rem; margin-bottom:14px;}
+  .trans-card ul{list-style:none; font-size:.9rem; color:var(--navy);}
+  .trans-card li{padding:8px 0; border-top:1px dashed var(--line); display:flex; gap:10px;}
+  .trans-card li:first-child{border-top:none;}
+  .trans-photo{border-radius:16px; overflow:hidden; box-shadow:0 20px 50px rgba(11,42,74,.18);}
+  .trans-photo img{width:100%; height:340px; object-fit:cover;}
+
+  /* FOOTER */
+  footer{background:var(--navy); color:#AFC7DE; padding:50px 0 26px; border-top:1px solid rgba(255,255,255,.08);}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; margin-bottom:30px;}
+  .foot-logo{font-family:'Space Grotesk'; font-weight:800; color:#fff; font-size:1.25rem; margin-bottom:10px;}
+  .foot-cols{display:flex; gap:60px; flex-wrap:wrap;}
+  .foot-col h5{color:#fff; font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px;}
+  .foot-col ul{list-style:none; font-size:.88rem;}
+  .foot-col li{margin-bottom:8px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1); padding-top:20px; display:flex; justify-content:space-between; font-size:.78rem; flex-wrap:wrap; gap:10px;}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{position:fixed; bottom:24px; right:24px; z-index:70; background:#25D366; color:#fff; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 26px rgba(37,211,102,.45); animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 10px 26px rgba(37,211,102,.45);}50%{box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 10px rgba(37,211,102,.12);}100%{box-shadow:0 10px 26px rgba(37,211,102,.45);}}
+
+
+  .catalog{background:var(--navy); color:#fff;}
+  .catalog .sec-head p{color:#AFC7DE;}
+  .catalog .sec-eyebrow{color:#7FD4FF;}
+  .cat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media(max-width:820px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.cat-grid{grid-template-columns:1fr;}}
+  .cat-item{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:20px; display:flex; gap:14px; align-items:flex-start;}
+  .cat-item .ic{font-size:1.6rem; flex-shrink:0;}
+  .cat-item h4{font-size:.95rem; color:#fff; margin-bottom:4px;}
+  .cat-item p{font-size:.8rem; color:#AFC7DE;}
+
+  .reveal{opacity:0; transform:translateY(24px) scale(.98);}
+
+/* ===== Extra professional enhancements ===== */
+#scroll-progress{
+  position:fixed; top:0; left:0; height:3px; width:0%; z-index:9998;
+  background:linear-gradient(90deg, var(--electric), var(--teal));
+  box-shadow:0 0 12px rgba(14,165,233,.6);
+}
+[id]{ scroll-margin-top:90px; }
+
+nav.nav-links a.active{ color:var(--electric); }
+nav.nav-links a{ position:relative; }
+nav.nav-links a.active::after{
+  content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px; background:var(--electric);
+}
+
+/* Stats strip */
+.stats{ background:var(--navy); padding:56px 0; position:relative; overflow:hidden; }
+.stats::before{
+  content:""; position:absolute; top:0; left:10%; right:10%; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(34,211,238,.6), transparent);
+}
+.stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; text-align:center; }
+@media(max-width:820px){ .stats-grid{ grid-template-columns:repeat(2,1fr); } }
+.stat-item{ padding:14px 8px; border-radius:14px; transition:transform .3s ease, background .3s ease; }
+.stat-item:hover{ transform:translateY(-4px); background:rgba(255,255,255,.03); }
+.stat-item .num{ font-family:'Space Grotesk'; font-weight:800; font-size:clamp(1.8rem,3.4vw,2.6rem); color:#fff; }
+.stat-item .num span{
+  background:linear-gradient(90deg, var(--electric), #22D3EE);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.stat-item .label{ font-family:'IBM Plex Mono'; font-size:.72rem; letter-spacing:.05em; color:#AFC7DE; margin-top:6px; text-transform:uppercase; }
+
+/* FAQ accordion */
+.faq-list{ max-width:760px; margin:0 auto; }
+.faq-item{ border-bottom:1px solid var(--line); border-left:2px solid transparent; transition:border-color .3s ease; }
+.faq-item.open{ border-left-color:var(--electric); }
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:20px 16px; display:flex; justify-content:space-between; align-items:center;
+  font-family:'Space Grotesk'; font-weight:600; font-size:1rem; color:var(--navy);
+  transition:background .25s ease;
+  border-radius:8px;
+}
+.faq-q:hover{ background:rgba(14,165,233,.05); }
+.faq-q .plus{
+  font-size:1.3rem; color:var(--electric); transition:transform .35s cubic-bezier(.4,0,.2,1); flex-shrink:0; margin-left:16px;
+}
+.faq-item.open .faq-q .plus{ transform:rotate(135deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.4,0,.2,1); }
+.faq-a p{ padding:0 16px 20px; color:var(--muted); font-size:.92rem; max-width:640px; }
+
+/* Gallery lightbox */
+.gal-item{ cursor:zoom-in; }
+#lightbox{
+  position:fixed; inset:0; z-index:9997; background:rgba(2,6,15,.94);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+#lightbox.open{ opacity:1; pointer-events:auto; }
+#lightbox img{ max-width:88vw; max-height:82vh; border-radius:12px; box-shadow:0 30px 80px rgba(0,0,0,.6); }
+#lightbox .lb-cap{ position:absolute; bottom:6%; left:0; right:0; text-align:center; color:#fff; font-family:'IBM Plex Mono'; font-size:.8rem; }
+.lb-btn{
+  position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2); color:#fff; width:44px; height:44px; border-radius:50%;
+  font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.lb-prev{ left:3%; } .lb-next{ right:3%; }
+.lb-close{ position:absolute; top:26px; right:26px; background:none; border:none; color:#fff; font-size:1.8rem; cursor:pointer; }
+
+/* Custom cursor glow (desktop only) */
+#cursor-glow{
+  position:fixed; width:26px; height:26px; border-radius:50%; pointer-events:none; z-index:9996;
+  background:radial-gradient(circle, rgba(14,165,233,.55), transparent 70%);
+  transform:translate(-50%,-50%); mix-blend-mode:screen; transition:opacity .2s; opacity:0;
+}
+@media(hover:hover) and (pointer:fine){ #cursor-glow{ opacity:1; } }
+
+/* Magnetic buttons */
+.btn{ will-change:transform; }
+
+/* Mobile sticky CTA */
+#mobile-cta{
+  position:fixed; bottom:0; left:0; right:0; z-index:9995; display:none;
+  background:var(--navy); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); gap:10px;
+  box-shadow:0 -10px 30px rgba(0,0,0,.25);
+}
+#mobile-cta a{
+  flex:1; text-align:center; padding:12px 10px; border-radius:10px; font-weight:600; font-size:.85rem;
+  font-family:'Inter'; transition:transform .15s ease;
+}
+#mobile-cta a:active{ transform:scale(.96); }
+#mobile-cta a.call{ background:var(--electric); color:#fff; }
+#mobile-cta a.wa{ background:#25D366; color:#fff; position:relative; }
+#mobile-cta a.wa::after{
+  content:""; position:absolute; inset:0; border-radius:10px;
+  box-shadow:0 0 0 0 rgba(37,211,102,.55);
+  animation:mcPulse 2.2s infinite;
+}
+@keyframes mcPulse{
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.45); }
+  70%{ box-shadow:0 0 0 10px rgba(37,211,102,0); }
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+@media(max-width:760px){
+  #mobile-cta{ display:flex; }
+  body{ padding-bottom:70px; }
+}
+
+/* Footer socials */
+.foot-social{ display:flex; gap:10px; margin-top:14px; }
+.foot-social a{
+  width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center; font-size:.95rem; color:#AFC7DE;
+}
+.foot-social a:hover{ border-color:var(--electric); color:var(--electric); }
+
+/* Contact form */
+.videos-section{ background:var(--ice); }
+.vid-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:20px; }
+@media(max-width:980px){ .vid-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:620px){ .vid-grid{ grid-template-columns:repeat(2,1fr); } }
+.vid-cat{ margin-bottom:44px; }
+.vid-cat:last-child{ margin-bottom:0; }
+.vid-cat-title{ display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+.vid-cat-title h3{ font-family:'Space Grotesk'; font-size:1.05rem; color:var(--navy); }
+.vid-cat-title .n{ font-family:'IBM Plex Mono'; font-size:.72rem; color:var(--muted); }
+.vid-card{
+  position:relative; border-radius:14px; overflow:hidden; cursor:pointer;
+  aspect-ratio:9/16; background:#0B2A4A; box-shadow:0 10px 24px rgba(11,42,74,.12);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.vid-card:hover{ transform:translateY(-4px); box-shadow:0 18px 36px rgba(11,42,74,.2); }
+.vid-card img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.22,1,.36,1); }
+.vid-card:hover img{ transform:scale(1.06); }
+.vid-card::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(10,25,48,.75) 0%, transparent 45%);
+}
+.vid-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.92);
+  display:flex; align-items:center; justify-content:center; z-index:2;
+  box-shadow:0 6px 20px rgba(0,0,0,.35); transition:transform .3s ease;
+}
+.vid-card:hover .vid-play{ transform:translate(-50%,-50%) scale(1.1); }
+.vid-play svg{ width:18px; height:18px; margin-left:3px; }
+.vid-dur{
+  position:absolute; bottom:10px; right:10px; z-index:2;
+  font-family:'IBM Plex Mono'; font-size:.66rem; color:#fff;
+  background:rgba(0,0,0,.45); padding:3px 7px; border-radius:6px;
+}
+.vid-tag{
+  position:absolute; top:10px; left:10px; z-index:2;
+  font-family:'IBM Plex Mono'; font-size:.6rem; text-transform:uppercase; letter-spacing:.05em;
+  color:#fff; background:rgba(14,165,233,.85); padding:4px 9px; border-radius:999px;
+}
+#video-modal{
+  position:fixed; inset:0; z-index:9997; background:rgba(5,15,30,.92);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+#video-modal.open{ opacity:1; pointer-events:auto; }
+#video-modal .vm-inner{
+  position:relative; max-width:min(92vw, 420px); width:100%;
+  border-radius:16px; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,.6);
+  background:#000;
+}
+#video-modal video{ width:100%; display:block; max-height:82vh; }
+#video-modal .vm-close{
+  position:absolute; top:-46px; right:0; background:none; border:none;
+  color:#fff; font-size:2rem; cursor:pointer; line-height:1;
+}
+#video-modal .vm-caption{
+  padding:14px 18px; background:#0B2A4A; color:#fff; font-family:'IBM Plex Mono'; font-size:.78rem;
+}
+.contact{ background:var(--ice); }
+.contact-form{ max-width:560px; margin:0 auto; text-align:left; }
+.contact-form .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media(max-width:520px){ .contact-form .field-row{ grid-template-columns:1fr; } }
+.contact-form .field{ margin-bottom:16px; }
+.contact-form label{ display:block; font-size:.8rem; font-weight:600; color:var(--navy); margin-bottom:6px; }
+.contact-form input, .contact-form select, .contact-form textarea{
+  width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:8px;
+  font-family:'Inter'; font-size:.9rem; background:#fff; color:var(--ink);
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus{
+  outline:2px solid var(--electric); outline-offset:1px; border-color:var(--electric);
+}
+.form-msg{
+  display:none; background:#E7FBEF; border:1px solid #B7EFC9; color:#0F9D58;
+  padding:14px 18px; border-radius:10px; font-size:.88rem; margin-top:10px; text-align:center;
+}
+.form-msg.show{ display:block; }
+
+
+/* ===== Intro logo showcase styles ===== */
+
+  :root{
+    --i-blue:#0EA5E9;
+    --i-cyan:#22D3EE;
+    --i-deep:#020617;
+    --i-ink:#EAF3FB;
+  }
+  body.intro-lock{ overflow:hidden; }
+  .stage{
+    position:relative; width:100%; height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    perspective:1600px;
+    background:
+      radial-gradient(ellipse at 50% 45%, rgba(14,165,233,.14) 0%, transparent 60%),
+      var(--i-deep);
+  }
+
+  /* hex grid background */
+  .hexbg{
+    position:absolute; inset:0; opacity:.35;
+    background-image:
+      linear-gradient(30deg, rgba(14,165,233,.10) 1px, transparent 1px),
+      linear-gradient(150deg, rgba(14,165,233,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,.06) 1px, transparent 1px);
+    background-size: 46px 80px, 46px 80px, 46px 80px;
+    mask-image: radial-gradient(ellipse at 50% 45%, black 10%, transparent 72%);
+  }
+
+  canvas#particles{ position:absolute; inset:0; }
+
+  /* lightning streaks */
+  .bolt{
+    position:absolute; pointer-events:none; opacity:0;
+    filter: drop-shadow(0 0 6px rgba(125,211,252,.9));
+  }
+
+  .logo-wrap{
+    position:relative; width:min(90vw, 920px); aspect-ratio:3/2;
+    display:flex; align-items:center; justify-content:center;
+    transform-style:preserve-3d;
+    opacity:0;
+  }
+  .ring{
+    position:absolute; border-radius:50%; border:1.5px solid rgba(34,211,238,.5);
+    box-shadow:0 0 24px rgba(34,211,238,.25) inset, 0 0 24px rgba(34,211,238,.18);
+    opacity:0;
+  }
+  .ring.r1{ inset:-6%; }
+  .ring.r2{ inset:-16%; border-color:rgba(14,165,233,.3); }
+  .ring.r3{ inset:6%; border-style:dashed; border-color:rgba(125,211,252,.35); }
+
+  .logo-clip{
+    position:relative; width:100%; height:100%; border-radius:28px;
+    overflow:hidden;
+    box-shadow:
+      0 0 0 1px rgba(125,211,252,.25),
+      0 40px 100px rgba(0,0,0,.6),
+      0 0 90px rgba(14,165,233,.35);
+  }
+  .logo-clip img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform:scale(1.16); transform-origin:38% 42%;
+  }
+  .glitch-layer{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    mix-blend-mode:screen; opacity:0;
+  }
+  .sheen{
+    position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+    transform:skewX(-18deg);
+    pointer-events:none;
+  }
+  .scan{
+    position:absolute; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, transparent, rgba(125,211,252,1), transparent);
+    top:0; opacity:0; box-shadow:0 0 14px rgba(125,211,252,.9);
+  }
+
+  .caption{
+    position:absolute; bottom:6%; left:0; right:0; text-align:center; opacity:0;
+  }
+  .caption .tag{
+    font-size:.72rem; letter-spacing:.35em; text-transform:uppercase; color:var(--i-cyan);
+  }
+  .caption .sub{
+    font-size:.66rem; letter-spacing:.18em; color:#7fa8c9; margin-top:6px;
+  }
+
+  .corner{
+    position:absolute; width:26px; height:26px; opacity:0;
+    border:2px solid var(--i-cyan);
+  }
+  .c-tl{top:-14px; left:-14px; border-right:none; border-bottom:none;}
+  .c-tr{top:-14px; right:-14px; border-left:none; border-bottom:none;}
+  .c-bl{bottom:-14px; left:-14px; border-right:none; border-top:none;}
+  .c-br{bottom:-14px; right:-14px; border-left:none; border-top:none;}
+
+  .hud-line{
+    position:absolute; font-size:.62rem; letter-spacing:.08em; color:rgba(125,211,252,.85);
+    opacity:0; white-space:nowrap;
+  }
+  .hud-1{ top:8%; left:6%; }
+  .hud-2{ top:8%; right:6%; text-align:right; }
+  .hud-3{ bottom:8%; left:6%; }
+  .hud-4{ bottom:8%; right:6%; text-align:right; }
+
+  .boot-text{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-size:.8rem; letter-spacing:.25em; color:var(--i-cyan); text-align:center;
+    z-index:5;
+  }
+  .boot-text .bar{
+    width:220px; height:2px; background:rgba(255,255,255,.08); margin:14px auto 0; overflow:hidden; border-radius:2px;
+  }
+  .boot-text .bar > div{ width:0%; height:100%; background:linear-gradient(90deg,var(--i-blue),var(--i-cyan)); }
+
+  .replay{
+    position:absolute; bottom:28px; right:28px; z-index:10;
+    background:rgba(14,165,233,.12); border:1px solid rgba(125,211,252,.4);
+    color:var(--i-cyan); font-family:'IBM Plex Mono'; font-size:.7rem; letter-spacing:.08em;
+    padding:10px 18px; border-radius:999px; cursor:pointer; opacity:0;
+    text-transform:uppercase;
+  }
+  .replay:hover{ background:rgba(14,165,233,.22); }
+
+
+  #intro-overlay{
+    position:fixed; inset:0; z-index:9999;
+    background:var(--i-deep);
+    transition:opacity 1s ease;
+  }
+  #intro-overlay.hide{ opacity:0; pointer-events:none; }
+  .reopen-intro{
+    display:inline-flex; align-items:center; gap:6px;
+    background:transparent; border:1px solid rgba(14,165,233,.4);
+    color:var(--electric); font-family:'IBM Plex Mono'; font-size:.72rem;
+    padding:8px 14px; border-radius:999px; cursor:pointer; letter-spacing:.04em;
+  }
+  .reopen-intro:hover{ background:rgba(14,165,233,.08); }
+
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+
+<div id="lightbox">
+  <button class="lb-close">&times;</button>
+  <button class="lb-btn lb-prev">&#10094;</button>
+  <img src="" alt="">
+  <button class="lb-btn lb-next">&#10095;</button>
+  <div class="lb-cap"></div>
+</div>
+
+<div id="mobile-cta">
+  <a href="tel:+593939195170" class="call">📞 Llamar</a>
+  <a href="https://api.whatsapp.com/send?phone=593939195170&text=Hola%2C%20necesito%20servicio%20t%C3%A9cnico" class="wa">WhatsApp</a>
+</div>
+
+<div id="intro-overlay">
+<div class="stage" id="stage">
+
+  <div class="hexbg"></div>
+  <canvas id="particles"></canvas>
+
+  <svg class="bolt" id="bolt1" width="260" height="500" viewBox="0 0 260 500" style="top:-6%; left:2%;">
+    <path d="M140 0 L70 220 L130 220 L40 500 L200 190 L130 190 Z" fill="#7FD4FF"/>
+  </svg>
+  <svg class="bolt" id="bolt2" width="220" height="420" viewBox="0 0 220 420" style="bottom:-4%; right:4%; transform:scaleX(-1);">
+    <path d="M120 0 L60 190 L110 190 L30 420 L170 160 L110 160 Z" fill="#7FD4FF"/>
+  </svg>
+
+  <div class="boot-text" id="boot">
+    INICIALIZANDO SISTEMA SERVIHOUSE
+    <div class="bar"><div id="bootbar"></div></div>
+  </div>
+
+  <div class="logo-wrap" id="logoWrap">
+    <div class="ring r1" id="ring1"></div>
+    <div class="ring r2" id="ring2"></div>
+    <div class="ring r3" id="ring3"></div>
+
+    <div class="hud-line hud-1">SYS// ONLINE</div>
+    <div class="hud-line hud-2">SERVIHOUSE.EC</div>
+    <div class="hud-line hud-3">ING. ELECTRÓNICA</div>
+    <div class="hud-line hud-4">LÍNEA BLANCA</div>
+
+    <div class="corner c-tl"></div>
+    <div class="corner c-tr"></div>
+    <div class="corner c-bl"></div>
+    <div class="corner c-br"></div>
+
+    <div class="logo-clip" id="logoClip">
+      <img src="assets/img-01.jpg" alt="ServiHouse logo">
+      <div class="scan" id="scan"></div>
+      <div class="sheen" id="sheen"></div>
+    </div>
+  </div>
+
+  <div class="caption" id="caption">
+    <div class="tag">Ingeniería en Electrónica y Línea Blanca</div>
+    <div class="sub">Quito · Valles · Servicio a domicilio · 0939 195 170</div>
+  </div>
+
+  <div class="replay" id="replay">↻ Repetir animación</div>
+
+</div>
+</div>
+
+
+<header>
+  <div class="wrap nav">
+    <svg id="logo-svg" viewBox="0 0 260 64" xmlns="http://www.w3.org/2000/svg">
+      <g id="logo-house">
+        <path id="house-path" d="M8 34 L34 12 L60 34 L60 56 L8 56 Z" fill="none" stroke="#12B5C9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <rect id="house-door" x="27" y="40" width="14" height="16" fill="#0B2A4A"/>
+        <path id="wrench" d="M46 20 a6 6 0 1 1 -8.4 8.4 L30 36" stroke="#0B2A4A" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <text id="logo-text1" x="72" y="30" font-family="Space Grotesk" font-weight="700" font-size="24" fill="#12B5C9">Servi</text>
+      <text id="logo-text2" x="72" y="52" font-family="Space Grotesk" font-weight="700" font-size="24" fill="#0B2A4A">House</text>
+    </svg>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#proceso">Cómo funciona</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#confianza">Confianza</a></li>
+    </ul>
+    <div class="nav-cta">
+      <span class="nav-phone">📞 0939 195 170</span>
+      <button class="reopen-intro">✦ Ver intro</button>
+      <a href="#contacto" class="btn">Llamar ahora</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow-badge"><span class="blip"></span> Servicio técnico a domicilio · Quito</span>
+      <h1>Tu electrodoméstico dañado, <span>reparado hoy mismo.</span></h1>
+      <p>En ServiHouse reparamos refrigeradoras, lavadoras, secadoras, estufas y hornos de todas las marcas, con técnicos certificados que llegan a tu domicilio el mismo día.</p>
+      <p class="brands mono">Samsung · LG · Whirlpool · Sony · Electrolux · Montero</p>
+      <div class="hero-actions">
+        <a href="tel:+593939195170" class="btn">📞 Llamar: 0939 195 170</a>
+        <a href="https://api.whatsapp.com/send?phone=593939195170&text=Hola%2C%20tengo%20una%20urgencia%20con%20un%20electrodom%C3%A9stico" class="btn wa">Agendar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/img-02.jpg" alt="Técnico ServiHouse trabajando">
+      <div class="tag">Técnico ServiHouse en campo</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><div class="ic">📝</div><div><strong>Garantía por escrito</strong><small>1 año en originales, 30 días en genéricos</small></div></div>
+    <div class="trust-item"><div class="ic">🎓</div><div><strong>Técnicos certificados</strong><small>Ingeniería en electrónica</small></div></div>
+    <div class="trust-item"><div class="ic">🔧</div><div><strong>Repuestos originales</strong><small>Compatibles con tu marca</small></div></div>
+    <div class="trust-item"><div class="ic">⚡</div><div><strong>Atención el mismo día</strong><small>Respuesta inmediata</small></div></div>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat-item reveal"><div class="num" data-count="9">0<span>+</span></div><div class="label">Categorías de servicio</div></div>
+    <div class="stat-item reveal"><div class="num" data-count="1">0<span>año</span></div><div class="label">Garantía en originales</div></div>
+    <div class="stat-item reveal"><div class="num" data-count="6">0<span>+</span></div><div class="label">Marcas reparadas</div></div>
+    <div class="stat-item reveal"><div class="num"><span>100%</span></div><div class="label">Repuestos certificados</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Por qué elegirnos</span>
+      <h2>Confianza desde la primera llamada</h2>
+      <p>Sabemos que una urgencia con tus electrodomésticos no puede esperar. Por eso trabajamos con procesos claros, técnicos identificados y comunicación directa contigo.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal"><span class="num">01</span><h3>Garantía por escrito</h3><p>1 año de garantía en repuestos originales y 30 días en repuestos genéricos, firmada en cada trabajo.</p></div>
+      <div class="value-card reveal"><span class="num">02</span><h3>Técnicos certificados</h3><p>Personal con formación en ingeniería electrónica y línea blanca, identificado con uniforme.</p></div>
+      <div class="value-card reveal"><span class="num">03</span><h3>Repuestos originales</h3><p>Trabajamos solo con repuestos originales o compatibles certificados para tu equipo.</p></div>
+      <div class="value-card reveal"><span class="num">04</span><h3>Atención el mismo día</h3><p>Coordinamos la visita técnica el mismo día en la mayoría de sectores de Quito.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Nuestros servicios</span>
+      <h2>Reparación de línea blanca</h2>
+      <p>Diagnóstico y reparación especializada para los equipos que más usas en casa todos los días.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-03.jpg" alt="Mantenimiento de serpentín de refrigeradora">
+        <div class="svc-body">
+          <h3>Refrigeradores</h3>
+          <p>Reparamos fallas de enfriamiento, compresores, fugas de gas, sellos de puerta y sistemas No Frost, en refrigeradoras y congeladores de cualquier marca.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-04.jpg" alt="Reparación de lavadora">
+        <div class="svc-body">
+          <h3>Lavadoras y Secadoras</h3>
+          <p>Solucionamos fallas de centrifugado, fugas de agua, ruidos anormales, tarjetas electrónicas y sistemas de secado, con diagnóstico preciso en sitio.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-05.jpg" alt="Cocina a gas TEKA reparada">
+        <div class="svc-body">
+          <h3>Estufas y Hornos</h3>
+          <p>Revisión y reparación de quemadores, encendido electrónico, termostatos y resistencias en estufas, cocinas y hornos eléctricos o a gas.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-06.jpg" alt="Diagnóstico electrónico de placas">
+        <div class="svc-body">
+          <h3>Electrónica y Cómputo</h3>
+          <p>Reparación de TV LCD/Plasma/Smart TV, laptops, computadoras e impresoras, con diagnóstico de precisión en banco de pruebas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="trabajos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Trabajos realizados</span>
+      <h2>Más allá de la línea blanca</h2>
+      <p>También damos mantenimiento a sistemas de climatización, cuartos fríos, energía solar y equipos electrónicos para hogares y negocios.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal"><img src="assets/img-07.jpg" alt="Técnico ServiHouse"><div class="gal-cap">Servicio autorizado<span>Técnico identificado en campo</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-08.jpg" alt="Instalación de aire acondicionado"><div class="gal-cap">Aires acondicionados<span>Instalación de unidad exterior</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-09.jpg" alt="Instalación de paneles solares"><div class="gal-cap">Energía renovable<span>Instalación de paneles solares</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-10.jpg" alt="Cuarto frío terminado"><div class="gal-cap">Cuartos fríos<span>Construcción e instalación</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-11.jpg" alt="Reparación de placa de TV"><div class="gal-cap">Electrónica y TV<span>Diagnóstico de placas y módulos</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-12.jpg" alt="Instalación comercial de AC"><div class="gal-cap">Instalaciones comerciales<span>Climatización de locales</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-02.jpg" alt="Carga de refrigerante"><div class="gal-cap">Aires acondicionados<span>Carga de refrigerante y presión</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-13.jpg" alt="Construcción de cuarto frío"><div class="gal-cap">Cuartos fríos<span>Montaje de paneles térmicos</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-14.jpg" alt="Diagnóstico de TV"><div class="gal-cap">Electrónica y TV<span>Revisión de entradas y señal</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-15.jpg" alt="Reparación de lavadora"><div class="gal-cap">Lavadoras<span>Revisión de cableado y motor</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-16.jpg" alt="Construcción de cuarto frío"><div class="gal-cap">Cuartos fríos<span>Estructura e instalación de paneles</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-17.jpg" alt="Instalación de aire acondicionado"><div class="gal-cap">Aires acondicionados<span>Conexión de líneas frigoríficas</span></div></div>
+          <div class="gal-item reveal"><img src="assets/img-18.jpg" alt="Anclaje de unidad de aire acondicionado"><div class="gal-cap">Aires acondicionados<span>Anclaje y fijación de unidad exterior</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-19.jpg" alt="Instalación de TV y climatización en bar"><div class="gal-cap">Instalaciones comerciales<span>Montaje de TV y ductos de climatización</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-20.jpg" alt="Cuarto frío de dos cámaras terminado"><div class="gal-cap">Cuartos fríos<span>Cuarto frío de dos cámaras terminado</span></div></div>
+          <div class="gal-item reveal"><img src="assets/img-21.jpg" alt="Estanterías de cuarto frío comercial"><div class="gal-cap">Cuartos fríos<span>Estanterías industriales instaladas</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-22.jpg" alt="Sistema VRF Samsung en azotea"><div class="gal-cap">Aires acondicionados<span>Sistema VRF Samsung comercial</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-23.jpg" alt="Unidad condensadora industrial"><div class="gal-cap">Refrigeración industrial<span>Mantenimiento de unidad condensadora</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-24.jpg" alt="Reparación de lavadora LG"><div class="gal-cap">Lavadoras<span>Diagnóstico de panel de control LG</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Catálogo completo</span>
+      <h2>Soluciones técnicas integrales</h2>
+      <p>Además de línea blanca, ServiHouse cubre todo el espectro de mantenimiento eléctrico, electrónico e industrial para hogares y negocios.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-item reveal"><span class="ic">🧊</span><div><h4>Línea Blanca</h4><p>Reparación y mantenimiento de electrodomésticos.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">🔌</span><div><h4>Electrónica</h4><p>Reparación de tarjetas electrónicas y equipos especializados.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">🏭</span><div><h4>Línea Industrial</h4><p>Automatización, control industrial y mantenimiento de maquinaria.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">💻</span><div><h4>Informática</h4><p>Soporte técnico, reparación de PC, redes y sistemas.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">💡</span><div><h4>Electricidad</h4><p>Instalaciones eléctricas, diagnóstico y solución de fallas.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">📱</span><div><h4>Celulares</h4><p>Reparación de celulares de todas las marcas y modelos.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">☀️</span><div><h4>Energía Renovable</h4><p>Sistemas solares, energía eólica y soluciones sustentables.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">❄️</span><div><h4>Aires Acondicionados / Chiller</h4><p>Instalación, mantenimiento y reparación de sistemas de climatización.</p></div></div>
+      <div class="cat-item reveal"><span class="ic">🌬️</span><div><h4>HVAC</h4><p>Sistemas de ventilación, climatización y control de aire.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="equipo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Quién te atiende</span>
+      <h2>Ingeniería detrás de cada reparación</h2>
+      <p>ServiHouse está liderado por el Ing. Elvis Sevilla, especializado en electrónica y línea blanca, con banco de pruebas propio para diagnósticos de precisión.</p>
+    </div>
+    <div class="svc-grid" style="grid-template-columns:repeat(2,1fr); max-width:760px;">
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-25.jpg" alt="Ing. Elvis Sevilla en planta industrial">
+        <div class="svc-body">
+          <h3>Ing. Elvis Sevilla</h3>
+          <p>Fundador de ServiHouse. Ingeniería en electrónica y línea blanca, con experiencia en mantenimiento industrial y diagnóstico de placas.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <img class="svc-img" src="assets/img-26.jpg" alt="Ing. Elvis Sevilla">
+        <div class="svc-body">
+          <h3>Atención directa</h3>
+          <p>Coordina personalmente cada visita técnica para garantizar un diagnóstico claro y un servicio responsable de principio a fin.</p>
+        </div>
+      </div>
+          <div class="gal-item reveal"><img src="assets/img-27.jpg" alt="Construcción de cuarto frío en bodega"><div class="gal-cap">Cuartos fríos<span>Estructura aislada en construcción</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-28.jpg" alt="Técnico ServiHouse en consultorio médico"><div class="gal-cap">Instalaciones comerciales<span>Servicio técnico en consultorio médico</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-29.jpg" alt="Instalación de soporte de TV en bar"><div class="gal-cap">Instalaciones comerciales<span>Montaje de soportes de TV</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-30.jpg" alt="Interior de cuarto frío con evaporadores"><div class="gal-cap">Cuartos fríos<span>Sistema de evaporadores instalado</span></div></div>
+          <div class="gal-item reveal"><img src="assets/img-31.jpg" alt="Cambio de filtro de agua de refrigeradora"><div class="gal-cap">Refrigeradores<span>Cambio de filtro de agua</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-32.jpg" alt="Refrigeradora Samsung Side by Side reparada"><div class="gal-cap">Refrigeradores<span>Samsung Side by Side con Family Hub</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-33.jpg" alt="Pantalla Family Hub funcionando"><div class="gal-cap">Refrigeradores<span>Panel inteligente funcionando</span></div></div>
+      <div class="gal-item reveal"><img src="assets/img-34.jpg" alt="Instalación de manguera y filtro de refrigeradora"><div class="gal-cap">Refrigeradores<span>Instalación de línea de agua y filtro</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="videos-section" id="videos">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal">Videos de servicio</span>
+    <h2 class="sec-head reveal" style="margin-bottom:10px;"><span style="font-size:clamp(1.6rem,3vw,2.2rem); color:var(--navy); font-weight:700; font-family:'Space Grotesk';">Míranos trabajar</span></h2>
+    <p class="reveal" style="color:var(--muted); max-width:560px; margin-bottom:10px;">Clips reales de diagnóstico y reparación, directo desde el trabajo en campo.</p>
+
+    <div class="vid-cat">
+      <div class="vid-cat-title reveal"><h3>🧊 Refrigeradores</h3><span class="n">3 videos</span></div>
+      <div class="vid-grid">
+        <div class="reveal">      <div class="vid-card" data-video="coil_clean" data-caption="Limpieza de serpentín">
+        <span class="vid-tag">Mantenimiento</span>
+        <img src="assets/img-35.jpg" alt="Limpieza de serpentín">
+        <div class="vid-play"><svg viewBox="0 0 24 24" fill="#0B2A4A"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vid-dur">0:54</span>
+      </div></div>
+        <div class="reveal">      <div class="vid-card" data-video="fridge_pin" data-caption="Configuración de panel Family Hub">
+        <span class="vid-tag">Smart Fridge</span>
+        <img src="assets/img-36.jpg" alt="Configuración de panel Family Hub">
+        <div class="vid-play"><svg viewBox="0 0 24 24" fill="#0B2A4A"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vid-dur">0:41</span>
+      </div></div>
+        <div class="reveal">      <div class="vid-card" data-video="fridge_clock" data-caption="Panel Family Hub funcionando">
+        <span class="vid-tag">Smart Fridge</span>
+        <img src="assets/img-37.jpg" alt="Panel Family Hub funcionando">
+        <div class="vid-play"><svg viewBox="0 0 24 24" fill="#0B2A4A"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vid-dur">1:13</span>
+      </div></div>
+      </div>
+    </div>
+
+    <div class="vid-cat">
+      <div class="vid-cat-title reveal"><h3>🔥 Estufas y Hornos</h3><span class="n">2 videos</span></div>
+      <div class="vid-grid">
+        <div class="reveal">      <div class="vid-card" data-video="stove_burner" data-caption="Revisión de quemadores">
+        <span class="vid-tag">Diagnóstico</span>
+        <img src="assets/img-38.jpg" alt="Revisión de quemadores">
+        <div class="vid-play"><svg viewBox="0 0 24 24" fill="#0B2A4A"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vid-dur">0:41</span>
+      </div></div>
+        <div class="reveal">      <div class="vid-card" data-video="stove_flame" data-caption="Cocina TEKA funcionando">
+        <span class="vid-tag">Prueba de encendido</span>
+        <img src="assets/img-39.jpg" alt="Cocina TEKA funcionando">
+        <div class="vid-play"><svg viewBox="0 0 24 24" fill="#0B2A4A"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vid-dur">0:18</span>
+      </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="video-modal">
+  <div class="vm-inner">
+    <button class="vm-close">&times;</button>
+    <video id="vm-video" controls playsinline></video>
+    <div class="vm-caption" id="vm-caption"></div>
+  </div>
+</div>
+
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Cómo funciona</span>
+      <h2>Tu reparación en 3 pasos</h2>
+      <p>Un proceso simple, pensado para resolver tu urgencia lo antes posible.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="s-n">1</span><h4>Agenda tu visita</h4><p>Llámanos o escríbenos por WhatsApp contándonos la falla de tu equipo. Coordinamos horario el mismo día.</p></div>
+      <div class="step reveal"><span class="s-n">2</span><h4>Diagnóstico en casa</h4><p>Un técnico certificado llega a tu domicilio, revisa el equipo y te entrega un presupuesto claro antes de reparar.</p></div>
+      <div class="step reveal"><span class="s-n">3</span><h4>Reparación con garantía</h4><p>Realizamos la reparación con repuestos originales y te entregamos garantía por escrito de 3 meses.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-left:auto; margin-right:auto; text-align:center;">
+      <span class="sec-eyebrow">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q"><span>¿Cobran por la visita técnica?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Sí, cobramos una tarifa de revisión que se descuenta por completo del valor final si decides aceptar el presupuesto de reparación.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>¿Qué garantía tienen las reparaciones?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>1 año de garantía por escrito en repuestos originales, y 30 días en repuestos genéricos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>¿En qué zonas dan servicio?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Atendemos Quito, los valles aledaños y también fuera de la ciudad, coordinando la visita según disponibilidad.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>¿Qué formas de pago aceptan?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Todas las tarjetas (Visa, Mastercard, Amex, Diners) y transferencias a Banco Pichincha o Banco Guayaquil.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>¿Qué marcas reparan?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Trabajamos con Samsung, LG, Whirlpool, Sony, Electrolux, Montero, entre otras.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>¿Cuánto tiempo toma la reparación?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Depende de la falla y disponibilidad de repuestos: muchas reparaciones se resuelven en la misma visita; si se requiere un repuesto especial, te damos un tiempo estimado en el diagnóstico.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="confianza">
+  <div class="wrap transparency">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:24px;">
+        <span class="sec-eyebrow">Transparencia</span>
+        <h2>Sin sorpresas en la factura</h2>
+      </div>
+      <div class="trans-card">
+        <h3>Así trabajamos</h3>
+        <p>Todos nuestros técnicos van identificados con uniforme y credencial de ServiHouse. Cobramos una tarifa de revisión por la visita técnica, la cual se descuenta por completo del valor final si decides aceptar el presupuesto de reparación.</p>
+        <ul>
+          <li>✓ Técnico identificado con uniforme y credencial</li>
+          <li>✓ Presupuesto por escrito antes de reparar</li>
+          <li>✓ Tarifa de revisión descontada si apruebas el trabajo</li>
+          <li>✓ Garantía de 1 año en originales y 30 días en genéricos</li>
+          <li>✓ Aceptamos todas las tarjetas (Visa, Mastercard, Amex, Diners)</li>
+          <li>✓ También recibimos transferencias: Banco Pichincha y Banco Guayaquil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="trans-photo reveal">
+      <img src="assets/img-08.jpg" alt="Técnico identificado ServiHouse">
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact" style="text-align:center;">
+  <div class="wrap reveal">
+    <span class="sec-eyebrow">Contacto</span>
+    <h2 style="margin-bottom:16px;">¿Tu electrodoméstico falló? Resolvámoslo hoy.</h2>
+    <p style="color:var(--muted); max-width:520px; margin:0 auto 30px;">Cobertura en Quito y valles aledaños. Completa el formulario o escríbenos directamente.</p>
+
+    <form class="contact-form" id="contactForm">
+      <div class="field-row">
+        <div class="field"><label for="cf-nombre">Nombre</label><input id="cf-nombre" type="text" placeholder="Tu nombre" required></div>
+        <div class="field"><label for="cf-telefono">Teléfono</label><input id="cf-telefono" type="tel" placeholder="09XXXXXXXX" required></div>
+      </div>
+      <div class="field">
+        <label for="cf-tipo">Tipo de servicio</label>
+        <select id="cf-tipo">
+          <option>Línea blanca (refrigeradora, lavadora, cocina)</option>
+          <option>Electrónica / TV / Cómputo</option>
+          <option>Aires acondicionados / HVAC</option>
+          <option>Cuartos fríos</option>
+          <option>Energía renovable</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field"><label for="cf-msg">Cuéntanos qué necesitas</label><textarea id="cf-msg" rows="4" placeholder="Describe el equipo y la falla"></textarea></div>
+      <button type="submit" class="btn" style="width:100%; justify-content:center; border:none;">Enviar solicitud</button>
+      <div class="form-msg" id="formMsg">✓ ¡Gracias! Hemos recibido tu solicitud, también puedes escribirnos directo por WhatsApp para respuesta inmediata.</div>
+    </form>
+
+    <div class="hero-actions" style="justify-content:center; margin-top:26px;">
+      <a href="tel:+593939195170" class="btn">📞 0939 195 170</a>
+      <a href="https://api.whatsapp.com/send?phone=593939195170&text=Hola%2C%20necesito%20servicio%20t%C3%A9cnico" class="btn wa">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">ServiHouse</div>
+        <p style="font-size:.85rem; max-width:260px;">Ingeniería en electrónica y línea blanca. Servicio técnico autorizado en Quito.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/ServiHouse.Ecuador/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/servihouse.ecuador" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://www.tiktok.com/@servihouse.ecuador" target="_blank" rel="noopener" aria-label="TikTok">tk</a>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#proceso">Cómo funciona</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contacto</h5>
+          <ul>
+            <li>📞 0939 195 170</li>
+            <li>📍 Quito, Ecuador</li>
+            <li>🕐 Lun–Sáb 8:00–18:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ServiHouse. Todos los derechos reservados.</span>
+      <span>Servicio técnico independiente. No somos servicio autorizado de marca.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=593939195170&text=Hola%2C%20necesito%20servicio%20t%C3%A9cnico" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.28-1.38a9.9 9.9 0 0 0 4.71 1.2h.005c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.83 14.06c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.3-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.83 2 .9 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.57.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ===== LOGO: entrada ágil ===== */
+const houseTl = gsap.timeline();
+houseTl
+  .set("#logo-svg", {opacity:1})
+  .from("#house-path", {
+    opacity:0, scale:0.4, transformOrigin:"34px 34px", rotate:-25, duration:.55, ease:"back.out(2.2)"
+  })
+  .from("#house-door", {opacity:0, scaleY:0, transformOrigin:"bottom", duration:.3, ease:"power2.out"}, "-=.15")
+  .from("#wrench", {opacity:0, rotate:-90, transformOrigin:"38px 24px", duration:.4, ease:"back.out(3)"}, "-=.2")
+  .from("#logo-text1", {opacity:0, x:-16, duration:.35, ease:"power3.out"}, "-=.15")
+  .from("#logo-text2", {opacity:0, x:-16, duration:.35, ease:"power3.out"}, "-=.25");
+
+// idle agile micro-bounce on the whole logo, looping
+gsap.to("#logo-house", {
+  y:-3, duration:1.1, ease:"sine.inOut", repeat:-1, yoyo:true, delay:1.2
+});
+// quick wrench wiggle loop
+gsap.to("#wrench", {
+  rotate:12, transformOrigin:"38px 24px", duration:.9, ease:"sine.inOut", repeat:-1, yoyo:true, delay:1.6
+});
+// hover: agile jump + spin
+document.querySelector("#logo-svg").addEventListener("mouseenter", ()=>{
+  gsap.fromTo("#logo-house", {y:0, rotate:0}, {y:-8, rotate:-8, duration:.18, ease:"power2.out", yoyo:true, repeat:1});
+});
+
+/* ===== HERO entrance ===== */
+gsap.timeline({defaults:{ease:"power3.out"}})
+  .from(".hero .eyebrow-badge", {opacity:0, y:16, duration:.6})
+  .from(".hero h1", {opacity:0, y:26, duration:.7}, "-=.35")
+  .from(".hero p", {opacity:0, y:20, duration:.6}, "-=.4")
+  .from(".hero .brands", {opacity:0, duration:.5}, "-=.3")
+  .from(".hero-actions .btn", {opacity:0, y:16, stagger:.1, duration:.5}, "-=.3")
+  .from(".hero-photo", {opacity:0, scale:.92, duration:.8}, "-=.6");
+
+/* ===== Scroll reveals ===== */
+document.querySelectorAll(".reveal").forEach((el)=>{
+  gsap.to(el, {
+    opacity:1, y:0, scale:1, duration:.9, ease:"power2.out",
+    scrollTrigger:{trigger:el, start:"top 90%"}
+  });
+});
+
+gsap.utils.toArray(".value-card, .svc-card, .step, .gal-item").forEach((el,i)=>{
+  gsap.from(el, {
+    opacity:0, y:24, duration:.6, delay:(i%4)*0.06, ease:"power3.out",
+    scrollTrigger:{trigger:el, start:"top 90%"}
+  });
+});
+</script>
+
+
+<script>
+
+/* ---------- Canvas particle engine ---------- */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H;
+function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize(); addEventListener('resize', resize);
+
+const N = 90;
+const particles = Array.from({length:N}, () => ({
+  x: Math.random()*W, y: Math.random()*H,
+  r: Math.random()*1.6+0.4,
+  vx: (Math.random()-0.5)*0.15,
+  vy: (Math.random()-0.5)*0.15,
+  a: Math.random()*0.6+0.15,
+  tw: Math.random()*Math.PI*2
+}));
+
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  const cx = W/2, cy = H/2;
+  for(const p of particles){
+    p.x += p.vx; p.y += p.vy; p.tw += 0.02;
+    if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+    if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+    const flicker = (Math.sin(p.tw)+1)/2;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(125,211,252,${p.a*flicker})`;
+    ctx.shadowBlur = 6;
+    ctx.shadowColor = 'rgba(34,211,238,0.8)';
+    ctx.fill();
+  }
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ---------- GSAP master timeline ---------- */
+function playIntro(){
+  document.getElementById('replay').style.opacity = 0;
+
+  gsap.set(['#logoWrap','#ring1','#ring2','#ring3','.hud-line','.corner','#caption','#boot','#bootbar'], {clearProps:"all"});
+  gsap.set('#logoWrap', {opacity:0, scale:.7, rotateY:-35, rotateX:12, filter:'blur(6px)'});
+  gsap.set(['#ring1','#ring2','#ring3'], {opacity:0, scale:0.6});
+  gsap.set('.hud-line', {opacity:0, y:-6});
+  gsap.set('.corner', {opacity:0, scale:0.4});
+  gsap.set('#caption', {opacity:0, y:16});
+  gsap.set('#boot', {opacity:1});
+  gsap.set('#bootbar', {width:'0%'});
+  gsap.set('.bolt', {opacity:0});
+  gsap.set('#scan', {opacity:0, top:'0%'});
+  gsap.set('#sheen', {left:'-60%'});
+  gsap.set('.replay', {opacity:0});
+  gsap.set('#logoClip img', {scale:1.16, transformOrigin:'38% 42%'});
+
+  const tl = gsap.timeline({defaults:{ease:'power3.out'}});
+
+  tl.to('#bootbar', {width:'100%', duration:1.1, ease:'power1.inOut'})
+    .to('#boot', {opacity:0, duration:.35}, '-=.1')
+
+    // lightning flashes
+    .to('.bolt', {opacity:1, duration:.06, repeat:3, yoyo:true}, '-=.2')
+    .to('.bolt', {opacity:0, duration:.15})
+
+    // rings expand
+    .to(['#ring1','#ring2','#ring3'], {
+        opacity:1, scale:1, duration:.6, ease:'power2.out', stagger:.08
+    }, '-=.1')
+
+    // logo snaps into view with glitch feel
+    .to('#logoWrap', {
+        opacity:1, scale:1, rotateY:0, rotateX:0, filter:'blur(0px)',
+        duration:.8, ease:'back.out(1.8)'
+    }, '-=.5')
+
+    // quick glitch jitter
+    .to('#logoClip', {x:-6, duration:.04, repeat:5, yoyo:true}, '-=.6')
+    .set('#logoClip', {x:0})
+
+    // scanline sweep
+    .to('#scan', {opacity:1, duration:.05}, '-=.4')
+    .to('#scan', {top:'100%', duration:.9, ease:'power1.inOut'}, '-=.35')
+    .to('#scan', {opacity:0, duration:.2})
+
+    // chrome sheen sweep across logo
+    .to('#sheen', {left:'140%', duration:1.1, ease:'power2.inOut'}, '-=.9')
+
+    // cinematic Ken Burns zoom-out, revealing the full banner (van, escudo, tarjetas)
+    .to('#logoClip img', {scale:1, duration:4.2, ease:'power1.out'}, '-=1.05')
+
+    // HUD + corners + caption
+    .to('.corner', {opacity:1, scale:1, duration:.4, stagger:.05}, '-=.9')
+    .to('.hud-line', {opacity:1, y:0, duration:.4, stagger:.08}, '-=.8')
+    .to('#caption', {opacity:1, y:0, duration:.6}, '-=.5')
+    .to('.replay', {opacity:1, duration:.5})
+
+    // idle breathing loop for rings
+    .add(()=>{
+      gsap.to(['#ring1','#ring3'], {
+        rotate:360, duration:26, repeat:-1, ease:'none', transformOrigin:'50% 50%'
+      });
+      gsap.to('#ring2', {
+        rotate:-360, duration:34, repeat:-1, ease:'none', transformOrigin:'50% 50%'
+      });
+      gsap.to('#logoWrap', {
+        y:-8, duration:2.6, repeat:-1, yoyo:true, ease:'sine.inOut'
+      });
+      // periodic sheen replay
+      gsap.timeline({repeat:-1, repeatDelay:3.2})
+        .set('#sheen', {left:'-60%'})
+        .to('#sheen', {left:'140%', duration:1.2, ease:'power2.inOut'});
+    })
+    // hold the finished logo a moment, then dissolve into the site
+    .to({}, {duration: 1.6})
+    .add(closeIntro);
+}
+
+const overlay = document.getElementById('intro-overlay');
+
+function closeIntro(){
+  overlay.classList.add('hide');
+  document.body.classList.remove('intro-lock');
+  setTimeout(()=>{ overlay.style.display = 'none'; }, 1050);
+}
+
+function openIntro(){
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  requestAnimationFrame(()=>{
+    overlay.classList.remove('hide');
+    document.body.classList.add('intro-lock');
+    playIntro();
+  });
+}
+
+document.body.classList.add('intro-lock');
+playIntro();
+document.getElementById('replay').addEventListener('click', (e)=>{ e.stopPropagation(); playIntro(); });
+
+document.addEventListener('click', (e)=>{
+  if(e.target.closest('.reopen-intro')) openIntro();
+});
+
+/* mouse parallax tilt */
+const stage = document.getElementById('stage');
+stage.addEventListener('mousemove', (e)=>{
+  const r = stage.getBoundingClientRect();
+  const px = (e.clientX - r.left)/r.width - 0.5;
+  const py = (e.clientY - r.top)/r.height - 0.5;
+  gsap.to('#logoWrap', {rotateY: px*14, rotateX: -py*14, duration:.6, overwrite:'auto'});
+});
+
+</script>
+
+<script>
+/* ===== Scroll progress bar ===== */
+const progressBar = document.getElementById('scroll-progress');
+function updateProgress(){
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progressBar.style.width = scrolled + '%';
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+
+/* ===== Custom cursor glow (desktop only) ===== */
+const cursorGlow = document.getElementById('cursor-glow');
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  window.addEventListener('mousemove', (e)=>{
+    gsap.to(cursorGlow, {x:e.clientX, y:e.clientY, duration:.15, ease:'power2.out'});
+  });
+}
+
+/* ===== Nav active-link highlighting ===== */
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const navObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = '#' + entry.target.id;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+    }
+  });
+}, {rootMargin:'-40% 0px -50% 0px'});
+sections.forEach(s => navObserver.observe(s));
+
+/* ===== Animated stat counters ===== */
+document.querySelectorAll('.stat-item .num[data-count]').forEach(el=>{
+  const target = parseInt(el.getAttribute('data-count'), 10);
+  const span = el.querySelector('span');
+  const obj = {val:0};
+  ScrollTrigger.create({
+    trigger: el, start:'top 88%', once:true,
+    onEnter: ()=>{
+      gsap.to(obj, {
+        val: target, duration:1.4, ease:'power2.out',
+        onUpdate: ()=>{ el.firstChild.nodeValue = Math.round(obj.val); }
+      });
+    }
+  });
+});
+
+/* ===== FAQ accordion ===== */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ===== Gallery lightbox ===== */
+const galImgs = Array.from(document.querySelectorAll('.gal-item img'));
+const lightbox = document.getElementById('lightbox');
+const lbImg = lightbox.querySelector('img');
+const lbCap = lightbox.querySelector('.lb-cap');
+let lbIndex = 0;
+
+function openLightbox(i){
+  lbIndex = i;
+  const img = galImgs[i];
+  lbImg.src = img.src;
+  lbCap.textContent = img.closest('.gal-item').querySelector('.gal-cap')?.innerText.replace('\n',' — ') || '';
+  lightbox.classList.add('open');
+}
+function closeLightbox(){ lightbox.classList.remove('open'); }
+function stepLightbox(dir){
+  lbIndex = (lbIndex + dir + galImgs.length) % galImgs.length;
+  openLightbox(lbIndex);
+}
+
+galImgs.forEach((img, i)=> img.addEventListener('click', ()=> openLightbox(i)));
+lightbox.querySelector('.lb-close').addEventListener('click', closeLightbox);
+lightbox.querySelector('.lb-prev').addEventListener('click', ()=> stepLightbox(-1));
+lightbox.querySelector('.lb-next').addEventListener('click', ()=> stepLightbox(1));
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e)=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowRight') stepLightbox(1);
+  if(e.key === 'ArrowLeft') stepLightbox(-1);
+});
+
+/* ===== Magnetic buttons ===== */
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('mousemove', (e)=>{
+    const r = btn.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) * 0.25;
+    const y = (e.clientY - r.top - r.height/2) * 0.35;
+    gsap.to(btn, {x, y, duration:.3, ease:'power2.out'});
+  });
+  btn.addEventListener('mouseleave', ()=>{
+    gsap.to(btn, {x:0, y:0, duration:.4, ease:'elastic.out(1, 0.4)'});
+  });
+});
+
+/* ===== Contact form (front-end only) ===== */
+const contactForm = document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const msg = document.getElementById('formMsg');
+    msg.classList.add('show');
+    contactForm.querySelector('button[type="submit"]').textContent = '✓ Solicitud enviada';
+    gsap.fromTo(msg, {opacity:0, y:-8}, {opacity:1, y:0, duration:.4});
+  });
+}
+</script>
+
+<script>
+const VIDEO_SOURCES = {
+  "stove_burner": "assets/video-01.mp4",
+  "stove_flame": "assets/video-02.mp4",
+  "fridge_pin": "assets/video-03.mp4",
+  "fridge_clock": "assets/video-04.mp4",
+  "coil_clean": "assets/video-05.mp4"
+};
+const videoModal = document.getElementById('video-modal');
+const vmVideo = document.getElementById('vm-video');
+const vmCaption = document.getElementById('vm-caption');
+
+document.querySelectorAll('.vid-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const key = card.getAttribute('data-video');
+    const caption = card.getAttribute('data-caption');
+    vmVideo.src = VIDEO_SOURCES[key];
+    vmCaption.textContent = caption;
+    videoModal.classList.add('open');
+    vmVideo.play().catch(()=>{});
+  });
+});
+
+function closeVideoModal(){
+  videoModal.classList.remove('open');
+  vmVideo.pause();
+  vmVideo.removeAttribute('src');
+  vmVideo.load();
+}
+document.querySelector('.vm-close').addEventListener('click', closeVideoModal);
+videoModal.addEventListener('click', (e)=>{ if(e.target === videoModal) closeVideoModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && videoModal.classList.contains('open')) closeVideoModal(); });
+</script>
+</body>
+</html>
