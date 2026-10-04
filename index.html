@@ -1,427 +1,389 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>ServiHouse | Servicio Técnico de Electrodomésticos en Quito</title>
-<meta name="description" content="ServiHouse: servicio técnico a domicilio de electrodomésticos en Quito. Reparación de lavadoras, refrigeradoras, cocinas, aires acondicionados, energía renovable y más, con garantía escrita.">
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#030816">
+<title>ServiHouse | Servicio técnico de línea blanca y electrónica a domicilio</title>
+<meta name="description" content="Reparación y mantenimiento de refrigeradoras, lavadoras, secadoras, cocinas, aires acondicionados, cuartos fríos y electrónica. Servicio a domicilio en Quito, valles y fuera de la ciudad.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://servihouse.vercel.app/">
-<meta property="og:title" content="ServiHouse | Servicio Técnico de Electrodomésticos en Quito">
-<meta property="og:description" content="Reparación, instalación y mantenimiento de línea blanca, electrónica, aires acondicionados, cuartos fríos y energía renovable. Garantía por escrito.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://servihouse.vercel.app/">
-<meta property="og:image" content="https://servihouse.vercel.app/assets/logo-full.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#030712">
-<link rel="icon" href="assets/logo-icon.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"ServiHouse","description":"Servicio técnico a domicilio de electrodomésticos en Quito: reparación de lavadoras, refrigeradoras, cocinas, aires acondicionados, energía renovable y más.","url":"https://servihouse.vercel.app/","telephone":"+593939195170","image":"https://servihouse.vercel.app/assets/logo-full.jpg","address":{"@type":"PostalAddress","addressLocality":"Quito","addressCountry":"EC"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"18:00"}}</script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<meta property="og:type" content="website"><meta property="og:locale" content="es_EC"><meta property="og:site_name" content="ServiHouse">
+<meta property="og:title" content="ServiHouse | Servicio técnico de línea blanca y electrónica"><meta property="og:description" content="Técnicos especializados a domicilio. Garantía en todos nuestros servicios.">
+<meta property="og:url" content="https://servihouse.vercel.app/"><meta property="og:image" content="https://servihouse.vercel.app/icons/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><link rel="icon" href="/icons/icon-192.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"ServiHouse","description":"Servicio técnico a domicilio de línea blanca, electrónica, aires acondicionados y refrigeración.","url":"https://servihouse.vercel.app/","telephone":"+593939195170","image":"https://servihouse.vercel.app/icons/icon-512.png","logo":"https://servihouse.vercel.app/icons/icon-512.png","areaServed":["Quito","Valles de Quito"]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --black:#030712; --ink:#070D1F; --panel:#0B1430CC; --panel2:#0E1838E6;
-  --line:#1E2E5A; --blue:#2E8BFF; --cyan:#00E5FF; --glow:#3D9BFF;
-  --txt:#E7EEFF; --mut:#8CA0CE; --radius:20px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--black);color:var(--txt);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;color:#fff}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-.mono{font-family:'Space Grotesk',sans-serif}
-
-/* background field */
-.field{position:fixed;inset:0;z-index:-3;background:
-  radial-gradient(900px 600px at 12% -6%,#0B3FA633,transparent 60%),
-  radial-gradient(760px 620px at 100% 18%,#00C2FF22,transparent 60%),
-  radial-gradient(900px 700px at 50% 108%,#1046C733,transparent 60%),
-  var(--black)}
-.grid-overlay{position:fixed;inset:0;z-index:-2;opacity:.35;
-  background-image:linear-gradient(#5B93FF14 1px,transparent 1px),linear-gradient(90deg,#5B93FF14 1px,transparent 1px);
-  background-size:46px 46px;-webkit-mask:radial-gradient(1100px 700px at 50% 0%,#000 0%,transparent 72%);mask:radial-gradient(1100px 700px at 50% 0%,#000 0%,transparent 72%)}
-.noise{position:fixed;inset:0;z-index:-1;opacity:.03;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* glass */
-.glass{background:linear-gradient(160deg,#101D44CC,#0A1230D9);border:1px solid var(--line);border-radius:var(--radius);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 20px 60px #00000080,inset 0 1px 0 #ffffff14}
-.glow-edge{box-shadow:0 20px 60px #00000080,0 0 0 1px #2E8BFF33,0 0 40px -4px #2E8BFF55,inset 0 1px 0 #ffffff14}
-
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px 0}
-.navin{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.navcard{display:flex;align-items:center;justify-content:space-between;width:100%;background:#0A1230CC;border:1px solid var(--line);border-radius:999px;padding:9px 10px 9px 16px;backdrop-filter:blur(20px)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:#fff}
-.brand img{width:34px;height:34px;border-radius:10px;object-fit:cover;box-shadow:0 0 14px #2E8BFF88}
-.brand small{display:block;font:500 10px Inter,sans-serif;color:var(--mut);margin-top:-2px;font-weight:500}
-.navlinks{display:flex;gap:26px;font-size:13.5px;color:var(--mut);font-weight:600}
-.navlinks a:hover{color:#fff}
-.navcta{display:flex;align-items:center;gap:10px}
-.btn{display:inline-flex;align-items:center;gap:8px;font:700 13.5px 'Space Grotesk',sans-serif;padding:11px 20px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap}
-.btn.primary{background:linear-gradient(135deg,#2E8BFF,#00C2FF);color:#04101F;box-shadow:0 8px 24px #2E8BFF55}
-.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px #2E8BFF77}
-.btn.ghost{background:#ffffff0d;border:1px solid var(--line);color:#fff}
-.btn.ghost:hover{background:#ffffff1a}
-@media(max-width:860px){.navlinks{display:none}}
-@media(max-width:560px){
- .navcard{padding:8px 8px 8px 12px;gap:8px}
- .brand{font-size:14.5px}.brand img{width:28px;height:28px}
- .btn{padding:9px 13px;font-size:12px}
- .btn.ghost span.lbl{display:none}
-}
-
-/* hero */
-.hero{position:relative;padding:180px 0 100px;overflow:hidden}
-.herogrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 11.5px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);background:#00E5FF14;border:1px solid #00E5FF33;padding:8px 14px;border-radius:999px;margin-bottom:22px}
-.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:blink 1.6s ease-in-out infinite}
-@keyframes blink{50%{opacity:.3}}
-.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.04;margin-bottom:20px}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,#2E8BFF,#00E5FF 50%,#2E8BFF);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 5s linear infinite}
-@keyframes sheen{to{background-position:200% 0}}
-.hero p.lead{font-size:17px;color:var(--mut);max-width:480px;margin-bottom:30px}
-.herobtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
-.trustrow{display:flex;gap:28px;flex-wrap:wrap}
-.trustrow div{display:flex;flex-direction:column}
-.trustrow b{font-family:'Space Grotesk',sans-serif;font-size:26px;color:#fff}
-.trustrow span{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
-.herovisual{position:relative;perspective:1200px}
-.heroframe{position:relative;border-radius:28px;overflow:hidden;border:1px solid #2E8BFF44;box-shadow:0 30px 80px #00000090,0 0 70px -10px #2E8BFF66,inset 0 1px 0 #ffffff22}
-.heroframe img{width:100%;height:520px;object-fit:cover;object-position:50% 38%}
-.heroframe:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#030712EE 100%)}
-.herobadge{position:absolute;z-index:3;background:#0A1230EE;border:1px solid var(--line);border-radius:16px;padding:12px 16px;backdrop-filter:blur(16px);box-shadow:0 10px 30px #00000090;font:700 12.5px 'Space Grotesk',sans-serif;display:flex;align-items:center;gap:10px}
-.herobadge .ic{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#2E8BFF,#00E5FF);display:grid;place-items:center;font-size:15px;flex:none}
-.b1{top:-18px;right:-20px}.b2{bottom:34px;left:-26px}
-.scanline{position:absolute;left:6%;right:6%;height:2px;background:linear-gradient(90deg,transparent,#00E5FF,transparent);filter:blur(1px);opacity:0;z-index:2}
-@media(max-width:900px){
- .hero{padding:130px 0 60px}
- .herogrid{grid-template-columns:1fr;gap:40px}
- .herovisual{order:-1;margin:0 auto;max-width:460px}
- .heroframe img{height:320px}
- .hero h1{font-size:clamp(28px,8vw,38px)}
- .hero p.lead{max-width:none}
- .herobtns .btn{flex:1 1 auto;justify-content:center}
-}
-@media(max-width:480px){
- .herobadge{padding:9px 12px;font-size:11px}
- .b1{top:-14px;right:-8px}.b2{bottom:16px;left:-10px}
-}
-
-/* sections */
-section{padding:90px 0;position:relative}
-.sechead{text-align:center;max-width:620px;margin:0 auto 50px}
-.tag{display:inline-flex;align-items:center;gap:7px;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
-.tag i{width:16px;height:1.5px;background:var(--cyan)}
-.sechead h2{font-size:clamp(26px,3.6vw,40px)}
-.sechead p{color:var(--mut);margin-top:12px;font-size:15.5px}
-
-/* services */
-.svcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.svc{position:relative;border-radius:22px;overflow:hidden;min-height:230px;border:1px solid var(--line);transform-style:preserve-3d;transition:border-color .3s}
-.svc.big{grid-column:span 2;grid-row:span 2;min-height:480px}
-.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.svc:hover img{transform:scale(1.07)}
-.svc:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#03071200 20%,#030712E6 88%)}
-.svc:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),#00E5FF2A,transparent 70%)}
-.svc:hover:after{opacity:1}
-.svc:hover{border-color:#2E8BFF77}
-.svcbody{position:absolute;z-index:3;left:18px;right:18px;bottom:16px}
-.svcicon{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2E8BFF,#00E5FF);display:grid;place-items:center;font-size:18px;margin-bottom:10px;box-shadow:0 6px 18px #2E8BFF66}
-.svcbody h3{font-size:15px;margin-bottom:4px}
-.svcbody p{font-size:12px;color:#C7D5F5;line-height:1.4}
-.svc.big .svcbody h3{font-size:19px}
-@media(max-width:980px){.svcgrid{grid-template-columns:repeat(2,1fr)}.svc.big{grid-column:span 2;min-height:300px}}
-
-/* why / stats strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stripcard{padding:26px 22px;text-align:left}
-.stripcard .n{font-size:15px;color:var(--cyan);margin-bottom:12px}
-.stripcard h3{font-size:16px;margin-bottom:6px}
-.stripcard p{font-size:13px;color:var(--mut)}
-@media(max-width:860px){.strip{grid-template-columns:repeat(2,1fr)}}
-
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;gap:12px}
-.gal a{position:relative;grid-row:span 1;border-radius:16px;overflow:hidden;border:1px solid var(--line);display:block}
-.gal a img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.gal a:hover img{transform:scale(1.08)}
-.gal a.tall{grid-row:span 2}
-.gal a:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#030712CC);opacity:0;transition:opacity .3s}
-.gal a:hover:after{opacity:1}
-@media(max-width:860px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}}
-
-/* videos */
-.vidgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.vidcard{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:9/13;cursor:pointer}
-.vidcard video{width:100%;height:100%;object-fit:cover}
-.vidcard .play{position:absolute;inset:0;display:grid;place-items:center;background:#03071255}
-.vidcard .play b{width:56px;height:56px;border-radius:50%;background:#00000070;border:1.5px solid #ffffff88;display:grid;place-items:center;backdrop-filter:blur(6px);font-size:20px}
-.vidcard span{position:absolute;left:12px;bottom:12px;z-index:2;font:700 12.5px 'Space Grotesk',sans-serif;background:#0A1230CC;padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
-@media(max-width:860px){.vidgrid{grid-template-columns:repeat(2,1fr)}}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.step{padding:30px 26px;position:relative}
-.step .num{font:800 42px 'Space Grotesk',sans-serif;color:transparent;-webkit-text-stroke:1.5px #2E8BFF66;margin-bottom:14px}
-.step h3{font-size:17px;margin-bottom:8px}
-.step p{font-size:13.5px;color:var(--mut)}
-@media(max-width:860px){.steps{grid-template-columns:1fr}}
-
-/* brands marquee */
-.marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.marquee div{display:flex;gap:14px;width:max-content;animation:mq 28s linear infinite}
-.marquee span{white-space:nowrap;font:700 14px 'Space Grotesk',sans-serif;color:var(--mut);border:1px solid var(--line);background:#0A1230CC;padding:12px 22px;border-radius:14px}
+:root{--bg:#030816;--s1:#08122B;--s2:#0D1B42;--line:#18295A;--blue:#2F7BFF;--glow:#5BA2FF;--cy:#38E1FF;--txt:#EAF0FF;--mut:#8EA0C8;--sil:#C9D3E6;--wa:#22C55E;--e:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--txt);font:400 16px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:calc(82px + env(safe-area-inset-bottom,0px));overflow-x:hidden}
+img,video,canvas{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+h1,h2,h3,.sora{font-family:Sora,"DM Sans",system-ui,sans-serif;letter-spacing:-.03em;line-height:1.08}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}section{padding:76px 0;position:relative}
+.eb{font:700 12px/1 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--cy);margin-bottom:14px;display:flex;align-items:center;gap:10px}.eb:before{content:"";width:24px;height:2px;background:linear-gradient(90deg,var(--blue),var(--cy))}
+h2{font-size:clamp(28px,6vw,46px);font-weight:800;margin-bottom:12px}.lead{color:var(--mut);max-width:560px}
+#pg{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--blue),var(--cy));transform:scaleX(0);transform-origin:left}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:15px 26px;font:700 15px "DM Sans",sans-serif;cursor:pointer;transition:transform .25s var(--e),box-shadow .25s,background .25s;position:relative;overflow:hidden}
+.btn:active{transform:scale(.96)}.btn:hover{transform:translateY(-2px)}
+.b1{background:linear-gradient(135deg,#2F7BFF,#1B5FE0);color:#fff;box-shadow:0 10px 34px #2F7BFF66}.b1:hover{box-shadow:0 16px 44px #2F7BFF99}
+.b1:after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,#ffffff55,transparent);transform:skewX(-20deg);animation:sh 3.6s infinite}
+@keyframes sh{40%,100%{left:160%}}
+.b2{background:#ffffff08;color:var(--txt);border:1.5px solid var(--line)}.b3{background:var(--wa);color:#04210F}
+header{position:sticky;top:0;z-index:50;background:#030816cc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff10;padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;font:800 19px Sora,sans-serif;letter-spacing:-.03em}.logo img{width:38px;height:38px;border-radius:11px;box-shadow:0 0 18px #2F7BFF66}.logo b{color:var(--glow)}
+.nav .btn{padding:10px 18px;font-size:14px}.links{display:none;gap:28px;color:var(--mut);font-weight:500;font-size:15px}.links a:hover{color:#fff}
+@media(min-width:860px){.links{display:flex}}
+.hero{padding:40px 0 70px;overflow:hidden;position:relative}
+.hero .spot{position:absolute;inset:0;background:radial-gradient(600px circle at var(--mx,70%) var(--my,30%),#2F7BFF33,transparent 60%);pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 72%);pointer-events:none}
+.hg{position:relative;z-index:1;display:grid;gap:28px;align-items:center}@media(min-width:900px){.hg{grid-template-columns:1.05fr .95fr}}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:#08122B99;border-radius:999px;padding:8px 16px;font-size:13px;color:var(--sil);margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34D399;animation:pu 2s infinite}@keyframes pu{0%{box-shadow:0 0 0 0 #34D399aa}100%{box-shadow:0 0 0 10px #34D39900}}
+h1{font-size:clamp(36px,8.6vw,68px);font-weight:800;margin-bottom:20px;perspective:700px}
+.wd{display:inline-block}.js .wd{opacity:0;animation:wd .9s var(--e) forwards;animation-delay:calc(.1s + var(--i)*.08s)}
+@keyframes wd{from{opacity:0;transform:translateY(.7em) rotateX(-70deg);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+h1 em{font-style:normal}h1 em .wd{background:linear-gradient(100deg,#fff,var(--cy) 55%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}
+.tr{display:flex;flex-wrap:wrap;gap:22px 38px}.tr b{display:block;font:800 26px Sora,sans-serif}.tr span{font-size:13px;color:var(--mut)}
+.gz{position:relative;aspect-ratio:1/1;width:100%;max-width:520px;margin:0 auto}
+#g3d{width:100%;height:100%}
+.fl{position:absolute;display:flex;align-items:center;gap:10px;background:#08122Bd9;backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;box-shadow:0 14px 40px #0009;animation:fy 5s ease-in-out infinite}
+.fl b{display:block;font:700 13px Sora,sans-serif}.fl span{color:var(--mut);font-size:12px}.fl i{font-style:normal;font-size:20px}
+.f1{left:0;top:12%}.f2{right:0;bottom:14%;animation-delay:-2.4s}@keyframes fy{50%{transform:translateY(-12px)}}
+.mq{overflow:hidden;border-block:1px solid #ffffff0f;background:#08122B77;padding:18px 0}
+.mt{display:flex;width:max-content;gap:44px;animation:mq 26s linear infinite;color:#6F82B0;font:800 15px Sora,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.mt i{font-style:normal;color:var(--blue)}
 @keyframes mq{to{transform:translateX(-50%)}}
+.st4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:-1px}@media(min-width:760px){.st4{grid-template-columns:repeat(4,1fr)}}
+.sn{border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(160deg,var(--s2),var(--s1))}.sn b{font:800 40px Sora,sans-serif;background:linear-gradient(120deg,#fff,var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}.sn span{display:block;color:var(--mut);font-size:14px}
+.sg{display:grid;gap:16px;margin-top:38px;grid-template-columns:1fr}@media(min-width:640px){.sg{grid-template-columns:repeat(2,1fr)}}@media(min-width:960px){.sg{grid-template-columns:repeat(3,1fr)}}
+.sc{position:relative;border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(160deg,var(--s2),var(--s1));overflow:hidden;transition:transform .2s ease-out,border-color .3s;transform-style:preserve-3d;will-change:transform}
+.sc:after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),#5BA2FF2e,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}.sc:hover{border-color:var(--blue)}.sc:hover:after{opacity:1}
+.sc svg{width:58px;height:58px;stroke:var(--cy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px;filter:drop-shadow(0 0 8px #38E1FF88);transform:translateZ(40px)}
+.js .sc svg *{stroke-dasharray:140;stroke-dashoffset:140;transition:stroke-dashoffset 1.4s var(--e) .2s}.js .sc.in svg *{stroke-dashoffset:0}
+.sc h3{font-size:21px;font-weight:600;margin-bottom:8px;transform:translateZ(24px)}.sc p{color:var(--mut);font-size:15px;transform:translateZ(14px)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.chips span{border:1px solid var(--line);background:var(--s1);border-radius:999px;padding:9px 16px;font-size:14px;color:var(--sil)}
+.band{padding:0;height:min(70vh,520px);overflow:hidden;display:flex;align-items:center}
+.band img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;will-change:transform}
+.band:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#030816f2 8%,#030816a0 60%,#03081640)}
+.band .w{position:relative;z-index:2}.band h2{max-width:620px}
+.stage{perspective:1300px;height:340px;margin-top:30px;position:relative;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.ring{position:absolute;left:50%;top:50%;width:200px;height:270px;margin:-135px 0 0 -100px;transform-style:preserve-3d}
+.it{position:absolute;inset:0;border-radius:18px;overflow:hidden;border:1px solid #5BA2FF55;backface-visibility:hidden;box-shadow:0 0 40px #2F7BFF30;background:var(--s1)}
+.it img{width:100%;height:100%;object-fit:cover;pointer-events:none}.it span{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font-size:13px;background:linear-gradient(transparent,#030816ee)}
+@media(min-width:700px){.stage{height:420px}.ring{width:250px;height:340px;margin:-170px 0 0 -125px}}
+.steps{position:relative;display:grid;gap:16px;margin-top:38px;padding-left:46px}@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr);padding:56px 0 0}}
+.ln{position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:#18295A;border-radius:2px}.ln:after{content:"";position:absolute;inset:0;background:linear-gradient(var(--blue),var(--cy));transform-origin:top;transform:scaleY(var(--p,0));box-shadow:0 0 14px var(--cy)}
+@media(min-width:760px){.ln{left:6%;right:6%;top:18px;bottom:auto;height:2px;width:auto}.ln:after{transform-origin:left;transform:scaleX(var(--p,0))}}
+.st{position:relative;border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(160deg,var(--s2),var(--s1))}
+.st b{position:absolute;left:-46px;top:20px;width:40px;height:40px;border-radius:50%;background:var(--s1);border:2px solid var(--blue);display:grid;place-items:center;font:800 14px Sora,sans-serif;color:var(--cy);box-shadow:0 0 18px #2F7BFF66}
+@media(min-width:760px){.st b{left:26px;top:-56px}}.st h3{font-size:20px;margin-bottom:8px}.st p{color:var(--mut);font-size:15px}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 20px 8px;margin:0 -20px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
+.rail figure{flex:none;scroll-snap-align:start;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--s1)}.rail video{width:230px;height:410px;object-fit:cover;background:#000}
+.cap{padding:11px 14px;font-size:13.5px;color:var(--sil)}
+.ct{display:grid;gap:28px;border:1px solid var(--line);border-radius:28px;padding:30px 22px;background:radial-gradient(120% 120% at 100% 0,#2F7BFF35,transparent 55%),var(--s1)}@media(min-width:860px){.ct{grid-template-columns:1fr 1fr;padding:48px}}
+.f{display:grid;gap:12px}label{font-size:13px;color:var(--mut);display:block;margin-bottom:6px}
+input,select,textarea{width:100%;background:#030816;border:1.5px solid var(--line);color:var(--txt);border-radius:12px;padding:14px;font:400 16px "DM Sans",sans-serif}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px #2F7BFF28}textarea{min-height:90px;resize:vertical}
+.cl{display:grid;gap:12px;margin-top:22px}.cl a{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#030816aa;font-weight:700}.cl small{display:block;color:var(--mut);font-weight:400;font-size:13px}
+details{border-bottom:1px solid var(--line);padding:20px 0}summary{cursor:pointer;font:600 18px Sora,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--cy);font-size:26px;line-height:1}details[open] summary:after{content:"–"}details p{color:var(--mut);margin-top:12px;max-width:640px}
+footer{border-top:1px solid #ffffff10;padding:38px 0;color:var(--mut);font-size:14px}.fw{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:#030816ee;backdrop-filter:blur(16px);border-top:1px solid #ffffff12}.bar a{flex:1;text-align:center;padding:13px 6px;border-radius:12px;font:700 14px "DM Sans",sans-serif}
+@media(min-width:900px){.bar{display:none}body{padding-bottom:0}}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--e),transform .9s var(--e)}.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv,.js .wd{opacity:1;transform:none;transition:none;animation:none;filter:none}.mt,.fl,.pill i,.b1:after{animation:none}html{scroll-behavior:auto}.js .sc svg *{stroke-dashoffset:0}}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
 
-/* faq */
-.faqlist{max-width:760px;margin:0 auto}
-.faqitem{border-radius:16px;padding:4px 22px;margin-bottom:12px;cursor:pointer}
-.faqitem summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font:700 15px 'Space Grotesk',sans-serif;color:#fff}
-.faqitem summary::-webkit-details-marker{display:none}
-.faqitem summary .plus{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;font-size:14px;color:var(--cyan);transition:transform .3s}
-.faqitem[open] summary .plus{transform:rotate(45deg)}
-.faqitem p{padding:0 0 18px;color:var(--mut);font-size:14px}
+.bento{display:grid;gap:14px;margin-top:38px;grid-template-columns:1fr}@media(min-width:640px){.bento{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.bento{grid-template-columns:repeat(6,1fr)}.b-a{grid-column:span 3;grid-row:span 2;min-height:400px}.b-b{grid-column:span 3}.b-c{grid-column:span 2}}
+.sc{min-height:210px;display:flex;flex-direction:column;cursor:pointer}.sc>*:not(.bgi){position:relative;z-index:1}
+.sc .bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;transition:opacity .5s,transform .9s var(--e);pointer-events:none}.sc:hover .bgi,.sc.open .bgi{opacity:.36;transform:scale(1.07)}
+.sc .pl{position:absolute!important;right:18px;top:16px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--cy);font:700 18px/1 Sora,sans-serif;transition:transform .4s var(--e),background .3s}.sc:hover .pl,.sc.open .pl{transform:rotate(135deg);background:#2F7BFF33}
+.sc .mo{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--e);margin-top:auto}.sc .mo>div{overflow:hidden}
+.sc:hover .mo,.sc.open .mo,.sc:focus-within .mo{grid-template-rows:1fr}
+.sc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding-top:16px}.sc li{border:1px solid #5BA2FF44;background:#2F7BFF18;border-radius:999px;padding:6px 12px;font-size:13px;color:var(--sil)}
+.sc .ml,.sc .add{display:inline-block;margin-top:14px;color:var(--cy);font:700 14px "DM Sans",sans-serif;background:none;border:0;cursor:pointer;padding:0}
+.vs{display:grid;gap:18px;margin-top:34px}@media(min-width:900px){.vs{grid-template-columns:360px 1fr;align-items:start}}
+.vp{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:9/16;max-height:78vh;width:min(100%,360px);margin:0 auto;background:#000;border:1px solid #5BA2FF77;box-shadow:0 30px 80px #000a,0 0 60px #2F7BFF33;animation:vg 4s ease-in-out infinite}
+@keyframes vg{50%{box-shadow:0 30px 80px #000a,0 0 90px #38E1FF44}}
+.vp video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}.vp .vg{position:absolute;inset:0;background:linear-gradient(transparent 55%,#030816dd);pointer-events:none;transition:opacity .4s}
+.vi{position:absolute;left:18px;right:18px;bottom:16px;pointer-events:none;transition:opacity .4s}.vi b{display:block;font:600 18px Sora,sans-serif}.vi span{color:var(--sil);font-size:13px}.vp.ing .vi,.vp.ing .vg{opacity:0}
+.pb{position:absolute;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;border:0;background:linear-gradient(135deg,#2F7BFF,#1B5FE0);cursor:pointer;box-shadow:0 0 40px #2F7BFFaa;transition:transform .25s}.pb:hover{transform:scale(1.08)}
+.pb:before,.pb:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #5BA2FF;animation:rp 2.4s ease-out infinite}.pb:after{animation-delay:1.2s}@keyframes rp{to{transform:scale(1.9);opacity:0}}
+.pb span{position:absolute;left:31px;top:24px;border-style:solid;border-width:15px 0 15px 24px;border-color:transparent transparent transparent #fff}.pb.hd{display:none}
+.vl{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:900px){.vl{grid-template-columns:repeat(3,1fr)}}
+.vt{position:relative;aspect-ratio:3/4;border:1px solid var(--line);border-radius:20px;background-size:cover;background-position:center;overflow:hidden;cursor:pointer;text-align:left;padding:0;color:#fff;transition:transform .2s ease-out,border-color .3s,box-shadow .3s}
+.vt:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 15%,#030816f2)}.vt span{position:absolute;left:14px;right:14px;bottom:12px;font-size:12px;color:var(--mut)}.vt span b{display:block;color:#fff;font:600 15px Sora,sans-serif;margin-bottom:2px}
+.vt:hover{border-color:var(--blue)}.vt.on{border-color:var(--cy);box-shadow:0 0 0 1px var(--cy),0 0 30px #38E1FF44}
+.eq{position:absolute;right:14px;top:14px;display:none;gap:3px;align-items:flex-end;height:18px;z-index:1}.vt.on .eq{display:flex}.eq u{width:4px;background:var(--cy);border-radius:2px;animation:eq 1s ease-in-out infinite}.eq u:nth-child(2){animation-delay:-.3s}.eq u:nth-child(3){animation-delay:-.6s}@keyframes eq{0%,100%{height:4px}50%{height:18px}}
+.rw{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.rw h2{margin:0}
+.cb{border:1px solid #5BA2FF66;background:#2F7BFF22;color:#fff;border-radius:999px;padding:11px 18px;font:700 14px "DM Sans",sans-serif;cursor:pointer}.cb b{background:var(--blue);border-radius:999px;padding:2px 9px;margin-left:6px}
+.sheet{position:fixed;inset:0;z-index:70;background:#030816b0;backdrop-filter:blur(6px);display:none;align-items:flex-end}.sheet.on{display:flex}
+.sheet .in{background:var(--s1);border:1px solid var(--line);width:100%;max-width:520px;margin:0 auto;border-radius:28px 28px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:80vh;overflow:auto}@media(min-width:700px){.sheet{align-items:center}.sheet .in{border-radius:28px}}
+.cls{margin-top:16px;display:grid;gap:10px}.ci{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#030816}.ci button{background:none;border:0;color:var(--mut);font-size:16px;cursor:pointer}
+.gb{display:grid;gap:14px;margin-top:34px}@media(min-width:900px){.gb{grid-template-columns:.85fr 1.15fr;align-items:start}}
+.gf{display:grid;gap:12px;border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(160deg,var(--s2),var(--s1))}.gl{display:grid;gap:12px}@media(min-width:640px){.gl{grid-template-columns:1fr 1fr}}
+.gc{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:22px;padding:18px;background:linear-gradient(160deg,var(--s2),var(--s1))}.gc svg{width:68px;height:68px;flex:none}
+.gc circle{fill:none;stroke:var(--line);stroke-width:6}.gc .pg{stroke:var(--cy);stroke-linecap:round;stroke-dasharray:163.4;stroke-dashoffset:163.4;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 1.6s var(--e);filter:drop-shadow(0 0 6px var(--cy))}
+.gc b{display:block;font:600 16px Sora,sans-serif}.gc span{display:block;color:var(--sil);font-size:14px}.gc em{font-style:normal;color:var(--mut);font-size:12.5px}
+.fq{display:grid;gap:12px}@media(min-width:760px){.fq{grid-template-columns:1fr 1fr;align-items:start}}.fq details{border:1px solid var(--line);border-radius:18px;padding:18px 20px;background:linear-gradient(160deg,var(--s2),var(--s1))}
+.sc p,.sc h3{text-shadow:0 1px 10px #030816}.sc p{color:var(--sil)}.fl{translate:calc(var(--px,0)*-28px) calc(var(--py,0)*-22px)}.sn{transition:transform .2s ease-out}
 
-/* cta */
-.ctapanel{position:relative;border-radius:28px;padding:60px 40px;text-align:center;overflow:hidden;background:linear-gradient(135deg,#0A2A6B,#07163D 55%,#031029);border:1px solid #2E8BFF55;box-shadow:0 0 80px -10px #2E8BFF55}
-.ctapanel:before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 50% 0%,#00E5FF22,transparent);pointer-events:none}
-.ctapanel h2{font-size:clamp(24px,3.4vw,36px);margin-bottom:14px}
-.ctapanel p{color:#CBD9FF;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto}
-.ctabtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ===== Premium: tipografía cinética, cursor, magnético, transición líquida ===== */
+.js .wd{opacity:1;animation:none}h1 em .wd{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit}
+.ch{display:inline-block;will-change:transform}
+.ch.g{background:linear-gradient(100deg,#fff,var(--cy) 55%,var(--blue));background-size:var(--bs) 100%;background-position:var(--bp) 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn,.cb,.pb{transition:translate .35s var(--e),transform .25s var(--e),box-shadow .25s,background .25s}
+.cur,.cr{position:fixed;left:0;top:0;pointer-events:none;z-index:95;opacity:0;transition:opacity .3s}
+.cur{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:var(--cy);box-shadow:0 0 14px var(--cy)}
+.cr{width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:1.5px solid #5BA2FFaa;display:grid;place-items:center;font:700 10px "DM Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;transition:width .35s var(--e),height .35s var(--e),margin .35s var(--e),background .3s,border-color .3s,opacity .3s}
+.cr.h{width:78px;height:78px;margin:-39px 0 0 -39px;background:#2F7BFF30;border-color:var(--cy)}
+body.fp,body.fp *{cursor:none!important}body.fp input,body.fp textarea,body.fp select{cursor:text!important}
+#lq{position:fixed;inset:0;width:100%;height:100%;z-index:90;pointer-events:none;display:none}
 
-/* footer */
-footer{padding:50px 0 36px;border-top:1px solid var(--line);margin-top:30px}
-.footgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:30px}
-.footbrand p{color:var(--mut);font-size:13px;max-width:280px;margin-top:10px}
-.footcol h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:14px}
-.footcol a{display:block;font-size:13.5px;color:#D7E0F5;margin-bottom:9px}
-.footcol a:hover{color:var(--cyan)}
-.footbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--mut);border-top:1px solid var(--line);padding-top:22px}
+.mk{display:grid;gap:34px;align-items:center}@media(min-width:900px){.mk{grid-template-columns:1fr 1fr}}
+.lg{position:relative;border-radius:30px;overflow:hidden;border:1px solid #5BA2FF66;box-shadow:0 30px 90px #000a,0 0 80px #2F7BFF40;aspect-ratio:1/1;width:100%;max-width:540px;margin:0 auto;transition:transform .2s ease-out;transform-style:preserve-3d}
+.lg img{width:100%;height:100%;object-fit:cover}.lg:before{content:"";position:absolute;top:0;left:-120%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffff30,transparent);transform:skewX(-20deg);animation:sh 6s infinite;z-index:2;pointer-events:none}
 
-/* fab */
-.fab{position:fixed;right:20px;bottom:20px;z-index:40;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25D366,#1AAE52);display:grid;place-items:center;box-shadow:0 10px 30px #25D36666;font-size:26px}
-
-.reveal{opacity:0;transform:translateY(40px)}
-</style>
-</head>
-<body>
-
-<div class="field"></div><div class="grid-overlay"></div><div class="noise"></div>
-
-<nav>
- <div class="navin">
-  <div class="navcard">
-   <a class="brand" href="#top"><img src="assets/logo-icon.jpg" alt="ServiHouse">Servi<span style="color:#7FC4FF">House</span><br></a>
-   <div class="navlinks">
-    <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#videos">Videos</a><a href="#equipo">Equipo</a><a href="#faq">FAQ</a>
-   </div>
-   <div class="navcta">
-    <a class="btn ghost" href="tel:+593939195170">📞 <span class="lbl">Llamar</span></a>
-    <a class="btn primary" href="https://wa.me/593939195170" target="_blank" rel="noopener">WhatsApp</a>
-   </div>
-  </div>
+/* ===== Ultra: cristal, partículas, menú, microinteracciones ===== */
+#bgp{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+#orb,#g3d{position:absolute;inset:0;width:100%;height:100%}
+.sc,.sn,.st,.gf,.gc,.fq details,.fl,.lg{background:linear-gradient(160deg,rgba(18,34,80,.55),rgba(8,18,43,.4));-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);box-shadow:inset 0 1px 0 #ffffff1c,0 18px 50px #00000040}
+.ct{background:radial-gradient(120% 120% at 100% 0,#2F7BFF30,transparent 55%),rgba(8,18,43,.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.sheet .in{background:rgba(8,18,43,.82);-webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%)}
+.js .sc.rv.in,.js .sn.rv.in,.js .lg.rv.in,.js .vp.rv.in{transition:opacity .9s var(--e),transform .18s ease-out,border-color .3s}
+.links a{position:relative}.links a:after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:linear-gradient(90deg,var(--blue),var(--cy));transition:right .35s var(--e)}.links a:hover:after{right:0}
+.rt{display:flex;align-items:center;gap:10px}
+.mb{display:grid;gap:5px;width:44px;height:44px;place-content:center;border-radius:12px;border:1px solid var(--line);background:#ffffff0a;cursor:pointer}
+.mb i{display:block;width:20px;height:2px;border-radius:2px;background:#fff;transition:transform .3s var(--e)}
+.mb[aria-expanded=true] i:first-child{transform:translateY(3.5px) rotate(45deg)}.mb[aria-expanded=true] i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+@media(min-width:860px){.mb{display:none}}
+.mn{display:none;position:absolute;left:12px;right:12px;top:calc(100% + 8px);padding:10px;border-radius:22px;background:rgba(6,14,36,.95);border:1px solid #5BA2FF40;box-shadow:0 30px 80px #000a,inset 0 1px 0 #ffffff1c}
+.mn.on{display:grid;animation:mnin .35s var(--e)}@keyframes mnin{from{opacity:0;transform:translateY(-8px) scale(.97)}}
+.mn a{padding:14px 16px;border-radius:12px;font:600 17px Sora,sans-serif}.mn a:active{background:#2F7BFF30}
+.rpl{position:absolute;border-radius:50%;background:#ffffff55;transform:scale(0);animation:rp2 .65s ease-out forwards;pointer-events:none}@keyframes rp2{to{transform:scale(4);opacity:0}}
+</style></head><body>
+<canvas id="bgp" aria-hidden="true"></canvas>
+<div id="pg"></div>
+<header><div class="w nav"><a class="logo" href="#inicio"><img src="/icons/icon-192.png" alt="Logo de ServiHouse"><span>Servi<b>House</b></span></a>
+<nav class="links" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#videos">Videos</a><a href="#tienda">Tienda</a><a href="#garantias">Garantías</a><a href="#faq">Preguntas</a></nav><div class="rt"><a class="btn b1" href="tel:+593939195170">Llamar</a><button class="mb" id="mb" type="button" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i></button></div></div>
+<div class="mn" id="mn"><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#videos">Videos</a><a href="#tienda">Tienda</a><a href="#garantias">Garantías</a><a href="#faq">Preguntas</a><a href="#contacto">Contacto</a></div></header>
+<main>
+<section class="hero" id="inicio"><div class="spot" id="spot"></div><div class="w hg">
+ <div>
+  <span class="pill"><i></i>Servicio a domicilio · Quito, valles y fuera de la ciudad</span>
+  <h1><span class="wd" style="--i:0">Ingeniería</span> <span class="wd" style="--i:1">en</span> <span class="wd" style="--i:2">electrónica</span> <span class="wd" style="--i:3">y</span> <span class="wd" style="--i:4">línea</span> <span class="wd" style="--i:5">blanca,</span> <em><span class="wd" style="--i:6">en</span> <span class="wd" style="--i:7">tu</span> <span class="wd" style="--i:8">puerta.</span></em></h1>
+  <p class="lead">Reparamos y damos mantenimiento a refrigeradoras, lavadoras, cocinas, aires acondicionados, cuartos fríos y más. Técnicos especializados y garantía en cada servicio.</p>
+  <div class="cta"><a class="btn b1" href="#contacto">Pedir servicio técnico</a><a class="btn b3" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20t%C3%A9cnico" target="_blank" rel="noopener">WhatsApp</a></div>
+  <div class="tr"><div><b>1 año</b><span>garantía en originales</span></div><div><b>30 días</b><span>garantía en genéricos</span></div><div><b>0939 195 170</b><span>Ing. Elvis Sevilla</span></div></div>
  </div>
-</nav>
+ <div class="gz"><canvas id="orb" aria-hidden="true"></canvas><canvas id="g3d" aria-label="Engranaje 3D animado con el logo de ServiHouse" role="img"></canvas>
+  <div class="fl f1"><i>🛡️</i><div><b>Garantía incluida</b><span>En todos los servicios</span></div></div>
+  <div class="fl f2"><i>📍</i><div><b>Servicio a domicilio</b><span>Quito y valles</span></div></div></div>
+</div></section>
+<div class="mq" aria-hidden="true"><div class="mt"><span>Samsung</span><i>✦</i><span>LG</span><i>✦</i><span>Whirlpool</span><i>✦</i><span>Sony</span><i>✦</i><span>Electrolux</span><i>✦</i><span>Montero</span><i>✦</i><span>Samsung</span><i>✦</i><span>LG</span><i>✦</i><span>Whirlpool</span><i>✦</i><span>Sony</span><i>✦</i><span>Electrolux</span><i>✦</i><span>Montero</span><i>✦</i></div></div>
+<section style="padding:48px 0 0"><div class="w"><div class="st4">
+ <div class="sn rv"><b class="cnt" data-n="12">12</b><span>meses de garantía en repuestos originales</span></div>
+ <div class="sn rv"><b class="cnt" data-n="30">30</b><span>días de garantía en repuestos genéricos</span></div>
+ <div class="sn rv"><b class="cnt" data-n="14">14</b><span>tipos de equipos que atendemos</span></div>
+ <div class="sn rv"><b class="cnt" data-n="6">6</b><span>marcas líderes: Samsung, LG, Whirlpool y más</span></div></div></div></section>
 
-<header class="hero" id="top">
- <div class="wrap herogrid">
-  <div>
-   <div class="eyebrow reveal"><i></i>Servicio técnico autorizado en Quito</div>
-   <h1 class="reveal">Tu hogar funcionando, con <em>tecnología e ingeniería</em> de verdad.</h1>
-   <p class="lead reveal">Reparación e instalación de línea blanca, electrónica, aires acondicionados, cuartos fríos y energía renovable. Técnicos certificados, el mismo día, con garantía por escrito.</p>
-   <div class="herobtns reveal">
-    <a class="btn primary" href="https://wa.me/593939195170" target="_blank" rel="noopener">💬 Agendar por WhatsApp</a>
-    <a class="btn ghost" href="#servicios">Ver todos los servicios →</a>
-   </div>
-   <div class="trustrow reveal">
-    <div><b>12+</b><span>Categorías de servicio</span></div>
-    <div><b>1 año</b><span>Garantía en originales</span></div>
-    <div><b>14+</b><span>Marcas atendidas</span></div>
-    <div><b>Mismo día</b><span>Respuesta en Quito</span></div>
-   </div>
-  </div>
-  <div class="herovisual reveal">
-   <div class="heroframe">
-    <img src="assets/hero.jpg" alt="Técnico de ServiHouse en servicio">
-    <div class="scanline"></div>
-   </div>
-   <div class="herobadge b1"><span class="ic">🛡️</span>Garantía por escrito</div>
-   <div class="herobadge b2"><span class="ic">⚡</span>Atención el mismo día</div>
-  </div>
- </div>
-</header>
+<section id="marca" style="padding-top:8px"><div class="w"><div class="mk">
+ <div><div class="eb rv">Nuestra marca</div><h2 class="rv">Ingeniería que se nota en cada servicio.</h2><p class="lead rv">ServiHouse resuelve fallas de línea blanca y electrónica con criterio de ingeniería: diagnóstico claro, repuestos originales o genéricos y garantía en todos nuestros servicios.</p>
+  <div class="cta rv"><a class="btn b1" href="#contacto">Pedir servicio técnico</a></div></div>
+ <div class="lg tilt rv"><img src="assets/logo.jpg" alt="Logotipo de ServiHouse: una mano azul sostiene una llave inglesa sobre la letra S" loading="lazy" width="1000" height="1000"></div></div></div></section>
 
-<section id="porque">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Por qué elegirnos</div><h2 class="reveal">Confianza desde la primera llamada</h2><p class="reveal">Procesos claros, técnicos identificados y comunicación directa contigo, de principio a fin.</p></div>
-  <div class="strip">
-   <div class="stripcard glass reveal"><div class="n">01</div><h3>Garantía por escrito</h3><p>1 año en repuestos originales y 30 días en genéricos, firmada en cada trabajo.</p></div>
-   <div class="stripcard glass reveal"><div class="n">02</div><h3>Técnicos certificados</h3><p>Ingeniería en electrónica y línea blanca, identificados con uniforme.</p></div>
-   <div class="stripcard glass reveal"><div class="n">03</div><h3>Repuestos originales</h3><p>Compatibles y certificados para cada marca y modelo.</p></div>
-   <div class="stripcard glass reveal"><div class="n">04</div><h3>Atención el mismo día</h3><p>Coordinamos la visita técnica en la mayoría de sectores de Quito.</p></div>
-  </div>
- </div>
+<section id="servicios"><div class="w">
+ <div class="eb rv">Servicios</div><h2 class="rv">Una solución técnica para cada equipo.</h2><p class="lead rv">Toca o pasa el cursor sobre cada bloque para ver qué atendemos.</p>
+ <div class="bento"><article class="sc tilt rv b-a" tabindex="0"><img class="bgi" src="assets/img-32.jpg" alt="" loading="lazy"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="3"/><path d="M12 20h24M17 10v4M17 25v6"/></svg><h3>Refrigeradoras</h3><p>Fallas de enfriamiento, ruidos, fugas y mantenimiento de equipos de todas las marcas.</p><div class="mo"><div><ul><li>No enfría</li><li>Ruidos</li><li>Fugas</li><li>Mantenimiento preventivo</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Refrigeradoras" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article><article class="sc tilt rv b-b" tabindex="0"><img class="bgi" src="assets/img-24.jpg" alt="" loading="lazy"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="8" y="4" width="32" height="40" rx="3"/><circle cx="24" cy="27" r="10"/><circle cx="24" cy="27" r="5"/><path d="M14 11h8"/></svg><h3>Lavadoras y secadoras</h3><p>No desagua, no centrifuga, no enciende: lo diagnosticamos en casa.</p><div class="mo"><div><ul><li>No desagua</li><li>No centrifuga</li><li>No enciende</li><li>Tarjetas de control</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Lavadoras%20y%20secadoras" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article><article class="sc tilt rv b-b" tabindex="0"><img class="bgi" src="assets/img-08.jpg" alt="" loading="lazy"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="14" rx="3"/><path d="M10 30q4 6 0 12M24 30q4 6 0 12M38 30q4 6 0 12"/></svg><h3>Aires acondicionados</h3><p>Instalación, mantenimiento y reparación, desde splits hasta sistemas comerciales VRF.</p><div class="mo"><div><ul><li>Instalación</li><li>Mantenimiento</li><li>Reparación</li><li>Sistemas VRF</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Aires%20acondicionados" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article><article class="sc tilt rv b-c" tabindex="0"><img class="bgi" src="assets/img-20.jpg" alt="" loading="lazy"><b class="pl">+</b><svg viewBox="0 0 48 48"><path d="M24 4v40M6.7 14l34.6 20M6.7 34l34.6-20M18 7l6 5 6-5M18 41l6-5 6 5"/></svg><h3>Cuartos fríos</h3><p>Montaje, unidades condensadoras y evaporadores para refrigeración industrial.</p><div class="mo"><div><ul><li>Montaje</li><li>Unidades condensadoras</li><li>Evaporadores</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Cuartos%20fríos" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article><article class="sc tilt rv b-c" tabindex="0"><img class="bgi" src="assets/img-06.jpg" alt="" loading="lazy"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="14" y="14" width="20" height="20" rx="2"/><path d="M20 14V8M28 14V8M20 34v6M28 34v6M14 20H8M14 28H8M34 20h6M34 28h6"/></svg><h3>Electrónica y TV</h3><p>Tarjetas, televisores Smart, LCD y plasma, con equipo de diagnóstico.</p><div class="mo"><div><ul><li>Tarjetas electrónicas</li><li>Smart TV, LCD y plasma</li><li>Osciloscopio</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Electrónica%20y%20TV" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article><article class="sc tilt rv b-c" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><path d="M26 4L10 26h12l-2 18 18-24H26z"/></svg><h3>Electricidad y energía</h3><p>Cocinas de inducción, cercos y portones eléctricos, cámaras y energía solar.</p><div class="mo"><div><ul><li>Cocinas de inducción</li><li>Cercos y portones</li><li>Cámaras</li><li>Energía solar</li></ul><a class="ml" href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20necesito%20servicio%20para:%20Electricidad%20y%20energía" target="_blank" rel="noopener">Pedir este servicio →</a></div></div></article></div>
+</div></section>
+
+<section class="band"><img data-p src="assets/img-20.jpg" alt="Cuarto frío de dos cámaras terminado" loading="lazy"><div class="w"><div class="eb rv">Refrigeración industrial</div><h2 class="rv">Cuartos fríos que trabajan sin parar.</h2><p class="lead rv">Diseñamos, montamos y damos mantenimiento a cuartos fríos para comercios e industria.</p></div></section>
+
+<section id="trabajos"><div class="w">
+ <div class="eb rv">Trabajos reales</div><h2 class="rv">Arrastra y explora en 3D.</h2><p class="lead rv">Casas, locales comerciales y proyectos industriales. Desliza para girar la galería.</p></div>
+ <div class="stage rv" id="stage"><div class="ring" id="ring">
+  <div class="it"><img src="assets/img-22.jpg" alt="Sistema VRF Samsung en azotea" loading="lazy"><span>Sistema VRF Samsung</span></div>
+  <div class="it"><img src="assets/img-13.jpg" alt="Montaje de paneles de cuarto frío" loading="lazy"><span>Montaje de cuarto frío</span></div>
+  <div class="it"><img src="assets/img-12.jpg" alt="Climatización de local comercial" loading="lazy"><span>Climatización comercial</span></div>
+  <div class="it"><img src="assets/img-23.jpg" alt="Unidad condensadora industrial" loading="lazy"><span>Unidad condensadora</span></div>
+  <div class="it"><img src="assets/img-17.jpg" alt="Técnico conectando líneas de aire acondicionado" loading="lazy"><span>Instalación de aire</span></div>
+  <div class="it"><img src="assets/img-30.jpg" alt="Evaporadores dentro de un cuarto frío" loading="lazy"><span>Evaporadores instalados</span></div>
+  <div class="it"><img src="assets/img-11.jpg" alt="Reparación de placa de televisor" loading="lazy"><span>Reparación de TV</span></div>
+  <div class="it"><img src="assets/img-10.jpg" alt="Cuarto frío terminado" loading="lazy"><span>Cuarto frío terminado</span></div></div></div>
 </section>
 
-<section id="servicios">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Catálogo completo</div><h2 class="reveal">Soluciones técnicas integrales</h2><p class="reveal">Línea blanca, electrónica, climatización, refrigeración industrial, energía renovable y seguridad.</p></div>
-  <div class="svcgrid">
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20l%C3%ADnea%20blanca" target="_blank" class="svc big reveal" style="--mx:50%">
-    <img src="assets/lavadora.jpg" alt="Línea blanca"><div class="svcbody"><div class="svcicon">🧺</div><h3>Línea blanca</h3><p>Refrigeradores, lavadoras, secadoras, cocinas y hornos de todas las marcas.</p></div>
-   </a>
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20aires%20acondicionados" target="_blank" class="svc reveal">
-    <img src="assets/aire-instalacion.jpg" alt="Aires acondicionados"><div class="svcbody"><div class="svcicon">❄️</div><h3>Aires acondicionados</h3><p>Instalación, carga y mantenimiento.</p></div>
-   </a>
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20cuartos%20fr%C3%ADos" target="_blank" class="svc reveal">
-    <img src="assets/cuarto-frio.jpg" alt="Cuartos fríos"><div class="svcbody"><div class="svcicon">🧊</div><h3>Cuartos fríos</h3><p>Construcción e instalación industrial.</p></div>
-   </a>
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20electr%C3%B3nica" target="_blank" class="svc reveal">
-    <img src="assets/galeria-25.jpg" alt="Electrónica y cómputo"><div class="svcbody"><div class="svcicon">💻</div><h3>Electrónica y cómputo</h3><p>TV, laptops, placas e impresoras.</p></div>
-   </a>
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20generadores" target="_blank" class="svc reveal">
-    <img src="assets/generador.jpg" alt="Generadores eléctricos"><div class="svcbody"><div class="svcicon">🔌</div><h3>Generadores</h3><p>Diésel y gasolina, mantenimiento.</p></div>
-   </a>
-   <a href="https://wa.me/593939195170?text=Hola%20ServiHouse%2C%20quiero%20cotizar%20energ%C3%ADa%20solar" target="_blank" class="svc reveal">
-    <img src="assets/solar.jpg" alt="Energía renovable"><div class="svcbody"><div class="svcicon">☀️</div><h3>Energía renovable</h3><p>Paneles solares y soluciones sustentables.</p></div>
-   </a>
-  </div>
- </div>
-</section>
+<section id="proceso" style="padding-top:20px"><div class="w">
+ <div class="eb rv">Cómo trabajamos</div><h2 class="rv">Simple, rápido y sin sorpresas.</h2>
+ <div class="steps" id="steps"><div class="ln"></div>
+  <div class="st rv"><b>01</b><h3>Cuéntanos la falla</h3><p>Escríbenos por WhatsApp o llena el formulario con el equipo y el problema.</p></div>
+  <div class="st rv"><b>02</b><h3>Visita a domicilio</h3><p>Un técnico especializado llega a tu casa o negocio y diagnostica en el sitio.</p></div>
+  <div class="st rv"><b>03</b><h3>Reparación garantizada</h3><p>Reparamos con repuestos originales o genéricos y te entregamos garantía.</p></div></div>
+ <div class="chips rv"><span>Cocinas de inducción y a gas</span><span>Laptops y computadoras</span><span>Impresoras</span><span>Calefones</span><span>Cámaras de seguridad</span><span>Cercos eléctricos</span><span>Portones eléctricos</span><span>Energía solar</span><span>Equipos de panadería</span></div>
+</div></section>
 
-<section id="trabajos">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Trabajos realizados</div><h2 class="reveal">Más allá de la línea blanca</h2><p class="reveal">Climatización, cuartos fríos, generadores y energía solar para hogares y negocios.</p></div>
-  <div class="gal">
-   <a href="assets/local-comercial.jpg" target="_blank" class="tall reveal"><img src="assets/local-comercial.jpg" alt="Instalación comercial"></a>
-   <a href="assets/aire-techo-1.jpg" target="_blank" class="reveal"><img src="assets/aire-techo-1.jpg" alt="Aire en azotea"></a>
-   <a href="assets/generadores.jpg" target="_blank" class="reveal"><img src="assets/generadores.jpg" alt="Generadores instalados"></a>
-   <a href="assets/galeria-24.jpg" target="_blank" class="tall reveal"><img src="assets/galeria-24.jpg" alt="Equipos Samsung en azotea"></a>
-   <a href="assets/soldadura.jpg" target="_blank" class="reveal"><img src="assets/soldadura.jpg" alt="Trabajo de soldadura"></a>
-   <a href="assets/galeria-16.jpg" target="_blank" class="reveal"><img src="assets/galeria-16.jpg" alt="Equipos de aire acondicionado"></a>
-   <a href="assets/descarga-generador.jpg" target="_blank" class="tall reveal"><img src="assets/descarga-generador.jpg" alt="Descarga de generador"></a>
-   <a href="assets/galeria-19.jpg" target="_blank" class="reveal"><img src="assets/galeria-19.jpg" alt="Reparación de televisor"></a>
-  </div>
- </div>
-</section>
+<section id="videos" style="padding-top:20px"><div class="w"><div class="eb rv">Míranos trabajar</div><h2 class="rv">Servicio en acción.</h2><p class="lead rv">Elige un video y míralo aquí mismo.</p>
+ <div class="vs rv"><div class="vp tilt" id="vp"><video id="vm" playsinline preload="none"></video><button class="pb" id="pb" type="button" aria-label="Reproducir video"><span></span></button><div class="vg"></div><div class="vi"><b id="vtt">Revisión de quemadores</b><span id="vcc">Video 1 de 5</span></div></div>
+ <div class="vl"><button class="vt tilt" type="button" data-i="0" data-v="assets/video-01.mp4" data-p="assets/img-38.jpg" data-t="Revisión de quemadores" style="background-image:url(assets/img-38.jpg)"><i class="eq"><u></u><u></u><u></u></i><span><b>Revisión de quemadores</b>Video 1 de 5</span></button><button class="vt tilt" type="button" data-i="1" data-v="assets/video-02.mp4" data-p="assets/img-39.jpg" data-t="Cocina funcionando" style="background-image:url(assets/img-39.jpg)"><i class="eq"><u></u><u></u><u></u></i><span><b>Cocina funcionando</b>Video 2 de 5</span></button><button class="vt tilt" type="button" data-i="2" data-v="assets/video-03.mp4" data-p="assets/img-36.jpg" data-t="Configuración de refrigeradora" style="background-image:url(assets/img-36.jpg)"><i class="eq"><u></u><u></u><u></u></i><span><b>Configuración de refrigeradora</b>Video 3 de 5</span></button><button class="vt tilt" type="button" data-i="3" data-v="assets/video-04.mp4" data-p="assets/img-37.jpg" data-t="Panel en funcionamiento" style="background-image:url(assets/img-37.jpg)"><i class="eq"><u></u><u></u><u></u></i><span><b>Panel en funcionamiento</b>Video 4 de 5</span></button><button class="vt tilt" type="button" data-i="4" data-v="assets/video-05.mp4" data-p="assets/img-35.jpg" data-t="Limpieza de serpentín" style="background-image:url(assets/img-35.jpg)"><i class="eq"><u></u><u></u><u></u></i><span><b>Limpieza de serpentín</b>Video 5 de 5</span></button></div></div></div></section>
 
-<section id="videos">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Videos de servicio</div><h2 class="reveal">Míranos trabajar</h2><p class="reveal">Clips reales de diagnóstico y reparación, directo desde el trabajo en campo.</p></div>
-  <div class="vidgrid">
-   <div class="vidcard reveal" onclick="this.querySelector('video').play();this.querySelector('.play').style.display='none'">
-    <video src="assets/video-1.mp4" poster="assets/poster-1.jpg" muted loop playsinline preload="metadata"></video>
-    <div class="play"><b>▶</b></div><span>Aires en azotea</span>
-   </div>
-   <div class="vidcard reveal" onclick="this.querySelector('video').play();this.querySelector('.play').style.display='none'">
-    <video src="assets/video-6.mp4" poster="assets/poster-6.jpg" muted loop playsinline preload="metadata"></video>
-    <div class="play"><b>▶</b></div><span>Condensadora</span>
-   </div>
-   <div class="vidcard reveal" onclick="this.querySelector('video').play();this.querySelector('.play').style.display='none'">
-    <video src="assets/video-9.mp4" poster="assets/poster-9.jpg" muted loop playsinline preload="metadata"></video>
-    <div class="play"><b>▶</b></div><span>Reparación de refrigeración</span>
-   </div>
-  </div>
- </div>
-</section>
+<section id="tienda" style="padding-top:20px"><div class="w"><div class="eb rv">Tienda</div>
+ <div class="rw rv"><h2>Equipos disponibles.</h2><button class="cb" id="cb" type="button">🧾 Mi cotización <b id="cc">0</b></button></div><p class="lead rv">Toca un bloque, agrégalo a tu cotización y te respondemos por WhatsApp con disponibilidad y precio.</p>
+ <div class="bento"><article class="sc tilt rv b-b" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="3"/><path d="M12 20h24M17 10v4M17 25v6"/></svg><h3>Refrigeradores</h3><p>Equipos de segunda mano. Consulta modelos, capacidad y disponibilidad.</p><div class="mo"><div><button class="add" data-n="Refrigeradores" type="button">+ Agregar a mi cotización</button></div></div></article><article class="sc tilt rv b-b" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="8" y="4" width="32" height="40" rx="3"/><circle cx="24" cy="27" r="10"/><circle cx="24" cy="27" r="5"/><path d="M14 11h8"/></svg><h3>Lavadoras y secadoras</h3><p>Carga frontal o superior. Te confirmamos disponibilidad por WhatsApp.</p><div class="mo"><div><button class="add" data-n="Lavadoras y secadoras" type="button">+ Agregar a mi cotización</button></div></div></article><article class="sc tilt rv b-c" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="24" rx="3"/><circle cx="16" cy="10" r="3"/><circle cx="32" cy="10" r="3"/><path d="M6 28h36"/></svg><h3>Estufas y hornos</h3><p>A gas, de inducción y hornos empotrables.</p><div class="mo"><div><button class="add" data-n="Estufas y hornos" type="button">+ Agregar a mi cotización</button></div></div></article><article class="sc tilt rv b-c" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="14" y="14" width="20" height="20" rx="2"/><path d="M20 14V8M28 14V8M20 34v6M28 34v6M14 20H8M14 28H8M34 20h6M34 28h6"/></svg><h3>Electrónica y cómputo</h3><p>Televisores, laptops y más.</p><div class="mo"><div><button class="add" data-n="Electrónica y cómputo" type="button">+ Agregar a mi cotización</button></div></div></article><article class="sc tilt rv b-c" tabindex="0"><b class="pl">+</b><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="14" rx="3"/><path d="M10 30q4 6 0 12M24 30q4 6 0 12M38 30q4 6 0 12"/></svg><h3>Aires acondicionados</h3><p>Splits y equipos de climatización.</p><div class="mo"><div><button class="add" data-n="Aires acondicionados" type="button">+ Agregar a mi cotización</button></div></div></article></div></div></section>
 
-<section id="proceso">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Cómo funciona</div><h2 class="reveal">Tu reparación en 3 pasos</h2></div>
-  <div class="steps">
-   <div class="step glass reveal"><div class="num">01</div><h3>Agenda tu visita</h3><p>Escríbenos por WhatsApp contándonos la falla. Coordinamos horario el mismo día.</p></div>
-   <div class="step glass reveal"><div class="num">02</div><h3>Diagnóstico en casa</h3><p>Un técnico certificado revisa el equipo y te entrega un presupuesto claro antes de reparar.</p></div>
-   <div class="step glass reveal"><div class="num">03</div><h3>Reparación con garantía</h3><p>Repuestos originales y garantía por escrito en cada trabajo.</p></div>
-  </div>
- </div>
-</section>
+<section id="garantias" style="padding-top:20px"><div class="w"><div class="eb rv">Garantías</div><h2 class="rv">Controla la garantía de tus equipos.</h2><p class="lead rv">Registra tu reparación y mira cuántos días te quedan. Los datos se guardan solo en tu teléfono.</p>
+ <div class="gb rv"><form class="gf" id="gfm"><div><label for="gn">Equipo</label><input id="gn" placeholder="Ej. Lavadora LG" required></div><div><label for="gd">Fecha del servicio</label><input id="gd" type="date" required></div><div><label for="gt">Tipo de repuesto</label><select id="gt"><option value="365">Original · 1 año</option><option value="30">Genérico · 30 días</option></select></div><button class="btn b1" type="submit">Guardar equipo</button></form><div class="gl" id="gl"></div></div></div></section>
 
-<section id="equipo">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Quién te atiende</div><h2 class="reveal">Ingeniería detrás de cada reparación</h2></div>
-  <div class="glass reveal" style="display:flex;gap:28px;align-items:center;padding:30px;max-width:760px;margin:0 auto;flex-wrap:wrap">
-   <img src="assets/elvis.jpg" alt="Ing. Elvis Sevilla" style="width:110px;height:110px;border-radius:20px;object-fit:cover;border:1px solid var(--line);flex:none">
-   <div><h3 style="font-size:19px;margin-bottom:6px">Ing. Elvis Sevilla</h3><p style="color:var(--mut);font-size:14px">Fundador de ServiHouse, especializado en electrónica y línea blanca, con banco de pruebas propio para diagnósticos de precisión. Coordina personalmente cada visita técnica.</p></div>
-  </div>
-  <div class="marquee reveal" style="margin-top:40px">
-   <div>
-    <span>Samsung</span><span>LG</span><span>Whirlpool</span><span>Sony</span><span>Electrolux</span><span>Montero</span><span>TEKA</span><span>Mabe</span><span>Indurama</span><span>Carrier</span>
-    <span>Samsung</span><span>LG</span><span>Whirlpool</span><span>Sony</span><span>Electrolux</span><span>Montero</span><span>TEKA</span><span>Mabe</span><span>Indurama</span><span>Carrier</span>
-   </div>
-  </div>
- </div>
-</section>
+<section id="faq" style="padding-top:20px"><div class="w"><div class="eb rv">Preguntas frecuentes</div><h2 class="rv">Resolvemos tus dudas.</h2>
+ <div class="rv fq"><details><summary>¿Qué zonas cubren?</summary><p>Damos servicio a domicilio en Quito, los valles y también fuera de la ciudad.</p></details>
+ <details><summary>¿Qué garantía incluye el servicio?</summary><p>Todos nuestros servicios tienen garantía: 1 año en repuestos originales y 30 días en repuestos genéricos.</p></details>
+ <details><summary>¿Qué marcas reparan?</summary><p>Trabajamos con las mejores marcas, entre ellas Samsung, LG, Whirlpool, Sony, Electrolux y Montero.</p></details>
+ <details><summary>¿Cómo puedo pagar?</summary><p>Aceptamos todas las tarjetas y también transferencias.</p></details>
+ <details><summary>¿Qué equipos atienden además de línea blanca?</summary><p>Televisores, computadoras, impresoras, cámaras, cercos y portones eléctricos, cuartos fríos, aires acondicionados, energía solar y equipos de panadería.</p></details></div></div></section>
 
-<section id="faq">
- <div class="wrap">
-  <div class="sechead"><div class="tag"><i></i>Preguntas frecuentes</div><h2 class="reveal">Resolvemos tus dudas</h2></div>
-  <div class="faqlist reveal">
-   <details class="faqitem glass"><summary>¿Cobran por la visita técnica?<span class="plus">+</span></summary><p>Sí, cobramos una tarifa de revisión que se descuenta por completo del valor final si decides aceptar el presupuesto de reparación.</p></details>
-   <details class="faqitem glass"><summary>¿Qué garantía tienen las reparaciones?<span class="plus">+</span></summary><p>1 año de garantía por escrito en repuestos originales, y 30 días en repuestos genéricos.</p></details>
-   <details class="faqitem glass"><summary>¿En qué zonas dan servicio?<span class="plus">+</span></summary><p>Atendemos Quito, los valles aledaños y también fuera de la ciudad, coordinando la visita según disponibilidad.</p></details>
-   <details class="faqitem glass"><summary>¿Qué formas de pago aceptan?<span class="plus">+</span></summary><p>Todas las tarjetas (Visa, Mastercard, Amex, Diners) y transferencias a Banco Pichincha o Banco Guayaquil.</p></details>
-   <details class="faqitem glass"><summary>¿Cuánto tiempo toma la reparación?<span class="plus">+</span></summary><p>Muchas se resuelven en la misma visita. Si se requiere un repuesto especial, te damos un tiempo estimado en el diagnóstico.</p></details>
-  </div>
- </div>
-</section>
-
-<section id="contacto">
- <div class="wrap">
-  <div class="ctapanel reveal">
-   <h2>¿Tu electrodoméstico falló? Resolvámoslo hoy.</h2>
-   <p>Cobertura en Quito y valles aledaños. Escríbenos directo o llámanos.</p>
-   <div class="ctabtns">
-    <a class="btn primary" href="https://wa.me/593939195170" target="_blank" rel="noopener">💬 Escribir por WhatsApp</a>
-    <a class="btn ghost" href="tel:+593939195170">📞 0939 195 170</a>
-   </div>
-  </div>
- </div>
-</section>
-
-<footer>
- <div class="wrap">
-  <div class="footgrid">
-   <div class="footbrand">
-    <a class="brand" href="#top"><img src="assets/logo-icon.jpg" alt="ServiHouse">ServiHouse</a>
-    <p>Ingeniería en electrónica y línea blanca. Servicio técnico independiente en Quito. No somos servicio autorizado de marca.</p>
-   </div>
-   <div class="footcol"><h4>Navegación</h4><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#equipo">Equipo</a><a href="#faq">FAQ</a></div>
-   <div class="footcol"><h4>Contacto</h4><a href="tel:+593939195170">📞 0939 195 170</a><a href="#">📍 Quito, Ecuador</a><a href="#">🕐 Lun–Sáb 8:00–18:00</a></div>
-  </div>
-  <div class="footbottom"><span>© 2026 ServiHouse. Todos los derechos reservados.</span><span>Servicio técnico independiente.</span></div>
- </div>
-</footer>
-
-<a class="fab" href="https://wa.me/593939195170" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-
+<section id="contacto" style="padding-top:20px"><div class="w"><div class="ct rv">
+ <div><div class="eb">Contacto</div><h2>¿Tu equipo falló? Hablemos hoy.</h2><p class="lead">Cuéntanos qué pasa y te respondemos por WhatsApp para coordinar la visita.</p>
+  <div class="cl"><a href="tel:+593939195170">📞<span>0939 195 170<small>Ing. Elvis Sevilla</small></span></a><a href="https://wa.me/593939195170" target="_blank" rel="noopener">💬<span>Escribir por WhatsApp<small>Atención rápida</small></span></a></div></div>
+ <form class="f" id="fm"><div><label for="a">Nombre</label><input id="a" required autocomplete="name"></div>
+  <div><label for="b">Equipo</label><select id="b"><option>Refrigerador</option><option>Lavadora o secadora</option><option>Cocina u horno</option><option>Aire acondicionado</option><option>Cuarto frío o refrigeración</option><option>TV o electrónica</option><option>Otro</option></select></div>
+  <div><label for="c">¿Qué le pasa?</label><textarea id="c" placeholder="Ej. No enfría, hace ruido, no enciende…"></textarea></div>
+  <div><label for="d">Sector o dirección</label><input id="d" autocomplete="street-address"></div>
+  <button class="btn b1" type="submit">Enviar solicitud por WhatsApp</button></form></div></div></section>
+</main>
+<div class="sheet" id="sh"><div class="in"><div class="rw"><h3 style="font-size:22px">Mi cotización</h3><button class="cb" id="cx" type="button">Cerrar</button></div><div id="cl2" class="cls"></div><a class="btn b3" id="wq" href="#" target="_blank" rel="noopener" style="margin-top:16px;width:100%">Enviar cotización por WhatsApp</a></div></div>
+<footer><div class="w fw"><a class="logo" href="#inicio"><img src="/icons/icon-192.png" alt=""><span>Servi<b>House</b></span></a><span>Ingeniería en electrónica y línea blanca · Quito, valles y fuera de la ciudad</span><span>© 2026 ServiHouse</span></div></footer>
+<div class="bar"><a class="b2" style="border:1.5px solid var(--line)" href="tel:+593939195170">📞 Llamar</a><a style="background:var(--blue);color:#fff" href="#contacto">Pedir servicio</a><a class="b3" href="https://wa.me/593939195170" target="_blank" rel="noopener">WhatsApp</a></div>
 <script>
-var RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
-if(window.gsap && !RM){
- gsap.registerPlugin(ScrollTrigger);
- gsap.utils.toArray('.reveal').forEach(function(el,i){
-  gsap.to(el,{opacity:1,y:0,duration:.8,ease:'power3.out',delay:(i%4)*.05,
-   scrollTrigger:{trigger:el,start:'top 92%'}});
- });
- gsap.to('.scanline',{top:'0%',opacity:.9,duration:2.2,repeat:-1,ease:'power1.inOut',
-  onRepeat:function(){gsap.set('.scanline',{top:'100%'})},
-  from:{top:'100%'}});
- gsap.fromTo('.scanline',{top:'-5%',opacity:0},{top:'105%',opacity:.8,duration:2.6,repeat:-1,ease:'power1.inOut',repeatDelay:.6});
- document.querySelectorAll('.svc').forEach(function(c){
-  c.addEventListener('pointermove',function(e){
-   var r=c.getBoundingClientRect();
-   c.style.setProperty('--mx',(e.clientX-r.left)+'px');
-   c.style.setProperty('--my',(e.clientY-r.top)+'px');
-   var ry=((e.clientX-r.left)/r.width-.5)*10, rx=-((e.clientY-r.top)/r.height-.5)*10;
-   gsap.to(c,{rotationY:ry,rotationX:rx,duration:.4,ease:'power2.out',transformPerspective:800});
-  });
-  c.addEventListener('pointerleave',function(){gsap.to(c,{rotationY:0,rotationX:0,duration:.5})});
- });
-}else{
- document.querySelectorAll('.reveal').forEach(function(e){e.style.opacity=1;e.style.transform='none'});
+(function(){var d=document,$=function(s){return d.querySelector(s)},$$=function(s){return[].slice.call(d.querySelectorAll(s))},RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+d.documentElement.classList.add('js');
+/* reveal + contadores */
+var rv=$$('.rv'),cn=$$('.cnt');function all(){rv.forEach(function(x){x.classList.add('in')})}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);if(e.target.style.transitionDelay)setTimeout(function(t){t.style.transitionDelay=''}.bind(null,e.target),1400);
+ if(e.target.querySelector&&e.target.querySelector('.cnt')){var c=e.target.querySelector('.cnt'),n=+c.dataset.n,t0=performance.now();if(!RM)(function f(t){var p=Math.min((t-t0)/1400,1);c.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}})},{threshold:.12});rv.forEach(function(x){io.observe(x)});setTimeout(all,4000)}else all();
+/* tilt 3D */
+$$('.tilt').forEach(function(el){el.addEventListener('pointermove',function(e){if(RM)return;var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateX('+(-y*14)+'deg) rotateY('+(x*16)+'deg)';el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%')});el.addEventListener('pointerleave',function(){el.style.transform=''})});
+/* scroll: progreso, parallax, línea */
+var tk=0,pg=$('#pg'),st=$('#steps');function onS(){var m=d.documentElement.scrollHeight-innerHeight;pg.style.transform='scaleX('+(m>0?scrollY/m:0)+')';
+ if(!RM)$$('[data-p]').forEach(function(e){var r=e.parentNode.getBoundingClientRect();e.style.transform='translate3d(0,'+((r.top+r.height/2-innerHeight/2)*-.14)+'px,0)'});
+ var r=st.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.78-r.top)/(r.height+40)));st.style.setProperty('--p',p)}
+addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(function(){tk=0;onS()})}},{passive:true});onS();
+/* foco que sigue al cursor */
+var hero=$('#inicio');hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+/* galería 3D */
+var ring=$('#ring'),its=$$('.it'),n=its.length,ang=0,vel=.18,R=300,drag=0,lx=0,stg=$('#stage'),on=1;
+function lay(){var w=its[0].offsetWidth;R=Math.round(w/2/Math.tan(Math.PI/n))+24;its.forEach(function(it,i){it.style.transform='rotateY('+i*360/n+'deg) translateZ('+R+'px)'})}lay();addEventListener('resize',lay);
+stg.addEventListener('pointerdown',function(e){drag=1;lx=e.clientX});addEventListener('pointerup',function(){drag=0});
+addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-lx;lx=e.clientX;ang+=dx*.35;vel=dx*.12});
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting}).observe(stg);
+(function sp(){if(on&&!RM&&!d.hidden){if(!drag){ang+=vel;vel+=(.18-vel)*.03}}ring.style.transform='translateZ(-'+R+'px) rotateY('+ang+'deg)';requestAnimationFrame(sp)})();
+/* engranaje 3D (canvas) */
+var cv=$('#g3d'),cx=cv.getContext('2d'),logo=new Image();logo.src='/icons/icon-192.png';
+var W,H,D=Math.min(devicePixelRatio||1,2),px=0,py=0,gv=1,i,ST=[],LOW=0;
+function gp(N,r0,a,b,c){var o=[];for(var i=0;i<N;i++){var a0=i/N*6.2832,sw=6.2832/N;[[0,r0],[a,1],[b,1],[c,r0]].forEach(function(k){var t=a0+k[0]*sw;o.push([Math.cos(t)*k[1],Math.sin(t)*k[1]])})}return o}
+var P=gp(14,.78,.16,.5,.66),P2=gp(8,.72,.14,.52,.68);for(i=0;i<80;i++)ST.push([(Math.random()-.5)*5,(Math.random()-.5)*5,(Math.random()-.5)*5]);
+var CE=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]],CV=[];for(i=0;i<8;i++)CV.push([i&1?1:-1,i&2?1:-1,i&4?1:-1]);
+function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0)}size();addEventListener('resize',size);
+d.addEventListener('pointermove',function(e){px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;var z=$('.gz');z.style.setProperty('--px',px);z.style.setProperty('--py',py)});
+function pr(x,y,z,g,ax,ay){var c=Math.cos(g),s=Math.sin(g),X=x*c-y*s,Y=x*s+y*c,c1=Math.cos(ax),s1=Math.sin(ax),Y2=Y*c1-z*s1,Z2=Y*s1+z*c1,c2=Math.cos(ay),s2=Math.sin(ay),X3=X*c2+Z2*s2,Z3=-X*s2+Z2*c2,f=3.4/(3.4-Z3),u=Math.min(W,H)*.205;return[W/2+X3*f*u,H/2-Y2*f*u,Z3]}
+function line(pts,al,col,lw){cx.beginPath();pts.forEach(function(p,j){j?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1])});cx.strokeStyle=col.replace('A',al);cx.lineWidth=lw||1.5;cx.stroke()}
+function circ(r,z,ax,ay,seg,ox,oy){var o=[];for(var j=0;j<=seg;j++){var t=j/seg*6.2832;o.push(pr((ox||0)+Math.cos(t)*r,(oy||0)+Math.sin(t)*r,z,0,ax,ay))}return o}
+function G(Pn,ox,oy,s,sp,z,ax,ay){var c=Math.cos(sp),sn=Math.sin(sp);return Pn.map(function(p){return pr(ox+(p[0]*c-p[1]*sn)*s,oy+(p[0]*sn+p[1]*c)*s,z,0,ax,ay)})}
+function gear(Pn,ox,oy,s,sp,Z,ax,ay,B,C){var bk=G(Pn,ox,oy,s,sp,-Z,ax,ay),fr=G(Pn,ox,oy,s,sp,Z,ax,ay),k;bk.push(bk[0]);line(bk,.45,B,1.2);
+ for(k=0;k<Pn.length;k+=2)line([bk[k],fr[k]],.3,B,1);
+ cx.beginPath();fr.forEach(function(p,j){j?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1])});cx.closePath();cx.fillStyle='rgba(47,123,255,.13)';cx.fill();fr.push(fr[0]);line(fr,.95,C,2)}
+function draw(t){cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';cx.shadowColor='#2F7BFF';cx.shadowBlur=LOW?0:14;
+ var sc=scrollY||0,g=t*.0005+sc*.002,ax=.42+py*.7+Math.sin(t*.0006)*.1,ay=Math.sin(t*.0004)*.55+px*1.1,Z=.2,B='rgba(91,162,255,A)',C='rgba(56,225,255,A)',k,m;
+ ST.forEach(function(s){var p=pr(s[0],s[1],s[2],t*.00007,ax*.6,ay*1.3),al=Math.max(.08,Math.min(.8,(p[2]+2.6)/5));cx.fillStyle='rgba(150,200,255,'+al+')';cx.fillRect(p[0],p[1],1.6,1.6)});
+ var u=(t%3400)/3400;line(circ(.3+u*2,Z,ax,ay,64),(1-u)*.5,C,1.4);
+ gear(P,0,0,1,g,Z,ax,ay,B,C);gear(P2,1.34,-.78,.56,-g*14/8+.4,Z,ax,ay,C,B);
+ line(circ(.62,Z,ax,ay,40),.7,B,1.4);line(circ(.3,Z,ax,ay,28),.9,C,1.6);
+ for(k=0;k<6;k++){var s=k*1.0472+g;line([pr(Math.cos(s)*.3,Math.sin(s)*.3,Z,0,ax,ay),pr(Math.cos(s)*.62,Math.sin(s)*.62,Z,0,ax,ay)],.6,B,1.2)}
+ for(k=0;k<2;k++){var cp=[Math.cos(t*.0007+k*3.14)*2.1,Math.sin(t*.0005+k*2)*.9,Math.sin(t*.0007+k*3.14)*1.5],cr=t*.001*(k?-1:1),cc=Math.cos(cr),cs=Math.sin(cr),VV=CV.map(function(v){var x=v[0]*.22,y=v[1]*.22,z=v[2]*.22;return pr(cp[0]+x*cc-z*cs,cp[1]+y*cc-x*cs*.4,cp[2]+x*cs+z*cc,0,ax,ay)});CE.forEach(function(e){line([VV[e[0]],VV[e[1]]],.7,k?B:C,1.2)})}
+ [[1.5,.5,.2],[1.85,-.7,.9]].forEach(function(o,k){var ra=ay+o[2]+t*.0002*(k?-1:1);line(circ(o[0],0,ax+o[1],ra,90),.25,k?C:B,1);
+  for(m=0;m<3;m++){var ph=(t*.0006*(k?-1:1)+m*2.09+k)%6.2832,pp=pr(Math.cos(ph)*o[0],Math.sin(ph)*o[0],0,0,ax+o[1],ra);cx.beginPath();cx.arc(pp[0],pp[1],3.2,0,6.2832);cx.fillStyle=C.replace('A',1);cx.fill()}});
+ cx.globalCompositeOperation='source-over';cx.shadowBlur=0;
+ if(logo.complete&&logo.naturalWidth){var c0=pr(0,0,Z+.02,0,ax,ay),sz=Math.min(W,H)*.19*(3.4/(3.4-c0[2])),sx=Math.max(.35,Math.cos(ay*.7));cx.save();cx.translate(c0[0],c0[1]);cx.scale(sx,1);cx.beginPath();cx.arc(0,0,sz*.5,0,6.2832);cx.clip();cx.drawImage(logo,-sz*.5,-sz*.5,sz,sz);cx.restore()}
 }
-</script>
-</body>
-</html>
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){gv=e[0].isIntersecting}).observe(cv);
+if(RM){logo.onload=function(){draw(900)};draw(900)}else{var lt=0,sl=0;(function lp(t){if(gv&&!d.hidden){var dt=t-lt;lt=t;if(dt>34)sl++;else if(sl>0)sl--;if(sl>45&&!LOW){LOW=1;D=1;size()}draw(t)}requestAnimationFrame(lp)})(0)}
+/* bloques interactivos */
+$$('.sc').forEach(function(el){el.addEventListener('click',function(e){if(e.target.closest('a,.add'))return;el.classList.toggle('open')});el.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target===el){e.preventDefault();el.classList.toggle('open')}})});
+/* video */
+var vm=$('#vm'),pb=$('#pb'),vts=$$('.vt'),vp=$('#vp');
+function setV(b,play){vm.pause();vm.removeAttribute('controls');vm.poster=b.dataset.p;vm.src=b.dataset.v;$('#vtt').textContent=b.dataset.t;$('#vcc').textContent='Video '+(+b.dataset.i+1)+' de '+vts.length;vts.forEach(function(x){x.classList.toggle('on',x===b)});pb.classList.remove('hd');vp.classList.remove('ing');if(play){var pm=vm.play();if(pm&&pm.catch)pm.catch(function(){})}}
+vts.forEach(function(b){b.addEventListener('click',function(){setV(b,true)})});pb.addEventListener('click',function(){var pm=vm.play();if(pm&&pm.catch)pm.catch(function(){})});
+vm.addEventListener('play',function(){pb.classList.add('hd');vm.controls=true;vp.classList.add('ing')});vm.addEventListener('ended',function(){pb.classList.remove('hd');vm.controls=false;vp.classList.remove('ing')});setV(vts[0],false);
+/* cotización */
+var cart=[],sh=$('#sh'),cl=$('#cl2');
+function cr(){$('#cc').textContent=cart.length;cl.innerHTML=cart.length?cart.map(function(c,k){return '<div class="ci"><span>'+c+'</span><button data-r="'+k+'" aria-label="Quitar">✕</button></div>'}).join(''):'<p style="color:var(--mut)">Aún no agregaste equipos. Toca un bloque de la tienda y pulsa «Agregar».</p>';var w=$('#wq');w.href='https://wa.me/593939195170?text='+encodeURIComponent('Hola ServiHouse, quiero cotizar estos equipos:\n'+cart.map(function(c){return '- '+c}).join('\n'));w.style.display=cart.length?'':'none'}
+$$('.add').forEach(function(b){b.addEventListener('click',function(){var n=b.dataset.n;if(cart.indexOf(n)<0)cart.push(n);b.textContent='Agregado ✓';setTimeout(function(){b.textContent='+ Agregar a mi cotización'},1200);cr();if(!RM&&$('#cb').animate)$('#cb').animate([{transform:'scale(1)'},{transform:'scale(1.16)'},{transform:'scale(1)'}],{duration:320})})});
+$('#cb').addEventListener('click',function(){sh.classList.add('on')});$('#cx').addEventListener('click',function(){sh.classList.remove('on')});
+sh.addEventListener('click',function(e){if(e.target===sh)sh.classList.remove('on');var r=e.target.closest('[data-r]');if(r){cart.splice(+r.dataset.r,1);cr()}});cr();
+/* garantías */
+function gl(){try{return JSON.parse(localStorage.getItem('sh_g2')||'[]')}catch(e){return[]}}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function gr(){var L=gl(),now=Date.now();$('#gl').innerHTML=L.length?L.map(function(g){var left=Math.ceil((g.s+g.d*864e5-now)/864e5),p=Math.max(0,Math.min(1,left/g.d));return '<div class="gc"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle class="pg" cx="32" cy="32" r="26" data-p="'+p+'"/></svg><div><b>'+esc(g.n)+'</b><span>'+(left>0?left+' días restantes':'Garantía terminada')+'</span><em>'+(g.d>100?'Repuesto original':'Repuesto genérico')+'</em></div></div>'}).join(''):'<div class="gc"><div><b>Aún no tienes equipos registrados</b><span>Registra el primero con el formulario.</span></div></div>';
+ requestAnimationFrame(function(){requestAnimationFrame(function(){$$('.pg').forEach(function(c){c.style.strokeDashoffset=163.4*(1-c.dataset.p)})})})}
+$('#gfm').addEventListener('submit',function(e){e.preventDefault();var n=$('#gn').value.trim(),dt=$('#gd').value;if(!n||!dt)return;var L=gl();L.push({n:n,s:new Date(dt+'T12:00:00').getTime(),d:+$('#gt').value});try{localStorage.setItem('sh_g2',JSON.stringify(L))}catch(x){}$('#gfm').reset();gr()});gr();
+/* ===== Premium ===== */
+var FP=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* tipografía cinética con resorte */
+var SP=(function(){var k=[],n=26;for(var i=0;i<=n;i++){var t=i/n,v=1-Math.exp(-5.5*t)*Math.cos(13*t);k.push({transform:'translateY('+((1-v)*85)+'%) rotate('+((1-v)*16)+'deg)',opacity:Math.min(1,t*7),offset:t})}return k})();
+function splitEl(el){var ls=[];el.setAttribute('aria-label',el.textContent.replace(/\s+/g,' ').trim());(function w(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var fr=d.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(tk){if(!tk)return;if(/^\s+$/.test(tk)){fr.appendChild(d.createTextNode(' '));return}var wd=d.createElement('span');wd.style.cssText='display:inline-block;white-space:nowrap';wd.setAttribute('aria-hidden','true');tk.split('').forEach(function(chr){var s=d.createElement('span');s.className='ch';s.textContent=chr;wd.appendChild(s);ls.push(s)});fr.appendChild(wd)});c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)w(c)})})(el);return ls}
+function spring(ls,base,step,dur){ls.forEach(function(s,i){s.animate(SP,{duration:dur||1100,delay:base+Math.min(i,60)*step,easing:'linear',fill:'backwards'})})}
+if(!RM){var h1=$('h1'),L1=splitEl(h1),gl_=L1.filter(function(s){return s.closest('em')});gl_.forEach(function(s,i){s.classList.add('g');s.style.setProperty('--bs',gl_.length*100+'%');s.style.setProperty('--bp',(gl_.length>1?i/(gl_.length-1)*100:0)+'%')});spring(L1,150,32,1200);
+ if('IntersectionObserver' in window){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io2.unobserve(e.target);spring(splitEl(e.target),0,24,1000)})},{threshold:.5});$$('h2').forEach(function(x){io2.observe(x)})}}
+/* botones magnéticos + cursor personalizado (solo con mouse) */
+if(FP&&!RM){var mg=$$('.btn,.cb,.pb'),cu=d.createElement('div'),cr_=d.createElement('div'),mx=-100,my=-100,rx=-100,ry=-100,shown=0,tk2=0,ev=null;cu.className='cur';cr_.className='cr';d.body.appendChild(cu);d.body.appendChild(cr_);d.body.classList.add('fp');
+ var LB=[['.pb,.vt','Play'],['.sc','Abrir'],['.it','Arrastra'],['summary','Ver'],['a,button',''],['input,textarea,select','#']];
+ d.addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;ev=e;if(!tk2){tk2=1;requestAnimationFrame(function(){tk2=0;var t=ev.target,lab=null;for(var k=0;k<LB.length;k++){if(t.closest&&t.closest(LB[k][0])){lab=LB[k][1];break}}
+  if(!shown){shown=1;cu.style.opacity=cr_.style.opacity=1}
+  if(lab==='#'){cu.style.opacity=cr_.style.opacity=0}else{cu.style.opacity=cr_.style.opacity=1;cr_.classList.toggle('h',lab!==null);cr_.textContent=lab||''}
+  mg.forEach(function(b){var r=b.getBoundingClientRect(),dx=mx-(r.left+r.width/2),dy=my-(r.top+r.height/2),rad=Math.max(r.width,r.height)*.8;if(Math.hypot(dx,dy)<rad){b.style.translate=dx*.3+'px '+dy*.3+'px';b.dataset.m=1}else if(b.dataset.m){b.style.translate='';b.dataset.m=''}})})}});
+ d.documentElement.addEventListener('mouseleave',function(){cu.style.opacity=cr_.style.opacity=0});
+ (function cl(){rx+=(mx-rx)*.2;ry+=(my-ry)*.2;cu.style.transform='translate('+mx+'px,'+my+'px)';cr_.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(cl)})()}
+/* transición líquida: shader de fragmentos propio en WebGL, carga perezosa */
+var LQ=null,busy=0;
+function lqInit(){if(LQ!==null)return LQ;try{var c=d.createElement('canvas');c.id='lq';var g=c.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false,powerPreference:'low-power'});if(!g)return LQ=false;
+ var vs='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}',fs='precision mediump float;uniform vec2 uR,uO;uniform float uP,uT;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p*=2.03;a*=.5;}return v;}void main(){vec2 p=(gl_FragCoord.xy-uO*uR)/uR.y;float w=fb(p*3.2+uT*.7)*.5+fb(p*8.-uT*1.3)*.1;float e=length(p)+w*.55;float r=uP*2.5;float cov=1.-smoothstep(r-.05,r,e);float g=smoothstep(r-.2,r-.03,e)*cov;float l=fb(p*14.+uT)*.6;vec3 col=mix(vec3(.01,.03,.1),vec3(.2,.6,1.),g*(.6+l));col+=vec3(.2,.9,1.)*pow(g,6.)*.9;gl_FragColor=vec4(col*cov,cov);}';
+ function sh(t,s){var o=g.createShader(t);g.shaderSource(o,s);g.compileShader(o);return o}
+ var pg2=g.createProgram();g.attachShader(pg2,sh(g.VERTEX_SHADER,vs));g.attachShader(pg2,sh(g.FRAGMENT_SHADER,fs));g.linkProgram(pg2);if(!g.getProgramParameter(pg2,g.LINK_STATUS))return LQ=false;g.useProgram(pg2);
+ var b=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),g.STATIC_DRAW);var al=g.getAttribLocation(pg2,'a');g.enableVertexAttribArray(al);g.vertexAttribPointer(al,2,g.FLOAT,false,0,0);
+ d.body.appendChild(c);return LQ={c:c,g:g,R:g.getUniformLocation(pg2,'uR'),O:g.getUniformLocation(pg2,'uO'),P:g.getUniformLocation(pg2,'uP'),T:g.getUniformLocation(pg2,'uT')}}catch(e){return LQ=false}}
+function lqDraw(p,ox,oy,t){var g=LQ.g,c=LQ.c;g.viewport(0,0,c.width,c.height);g.clear(g.COLOR_BUFFER_BIT);g.uniform2f(LQ.R,c.width,c.height);g.uniform2f(LQ.O,ox,oy);g.uniform1f(LQ.P,p);g.uniform1f(LQ.T,t);g.drawArrays(g.TRIANGLES,0,3)}
+function jump(t){var y=t.getBoundingClientRect().top+scrollY-72,s=d.documentElement.style;s.scrollBehavior='auto';scrollTo(0,y);s.scrollBehavior=''}
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function lqOut(){var L=lqInit();if(!L){busy=0;return}var c=L.c;c.width=Math.round(innerWidth*.5);c.height=Math.round(innerHeight*.5);c.style.display='block';var t1=performance.now();(function b(t){var k=Math.min((t-t1)/760,1);lqDraw(1-ease(k),.5,.5,t*.001);if(k<1)return requestAnimationFrame(b);c.style.display='none';busy=0})(t1)}
+function lqGo(target,x,y){var L=RM||busy?false:lqInit();if(!L){jump(target);return}busy=1;var c=L.c,W=innerWidth,H=innerHeight;c.width=Math.round(W*.5);c.height=Math.round(H*.5);c.style.display='block';var ox=x/W,oy=1-y/H,t0=performance.now();
+ (function a(t){var k=Math.min((t-t0)/560,1);lqDraw(ease(k),ox,oy,t*.001);if(k<1)return requestAnimationFrame(a);jump(target);lqOut()})(t0)}
+var BOT=/bot|crawl|spider|lighthouse|pagespeed|headless/i.test(navigator.userAgent||'')||navigator.webdriver;
+if(!RM&&!BOT&&!location.hash){busy=1;lqOut()}
+d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href');if(id.length<2)return;var t=d.querySelector(id);if(!t)return;e.preventDefault();var mn=$('#mn');if(mn&&mn.classList.contains('on')){mn.classList.remove('on');$('#mb').setAttribute('aria-expanded','false')}lqGo(t,e.clientX||innerWidth/2,e.clientY||innerHeight/2)});
+/* menú móvil, ripple, escalonado */
+$('#mb').addEventListener('click',function(){var o=$('#mn').classList.toggle('on');this.setAttribute('aria-expanded',o)});
+d.addEventListener('pointerdown',function(e){var b=e.target.closest&&e.target.closest('.btn');if(!b||RM)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),x=d.createElement('span');x.className='rpl';x.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(x);setTimeout(function(){x.remove()},700)});
+$$('.bento').forEach(function(g){[].slice.call(g.children).forEach(function(c,k){c.style.transitionDelay=(k*70)+'ms'})});
+/* partículas de fondo */
+(function(){var bp=$('#bgp'),bx=bp.getContext('2d'),N0=innerWidth<700?34:64,PT=[],bw,bh,bd=Math.min(devicePixelRatio||1,1.5),k;
+ function sz(){bw=innerWidth;bh=innerHeight;bp.width=bw*bd;bp.height=bh*bd;bx.setTransform(bd,0,0,bd,0,0)}sz();addEventListener('resize',sz);
+ for(k=0;k<N0;k++)PT.push({x:Math.random(),y:Math.random(),z:Math.random()*.8+.2,vx:(Math.random()-.5)*.00005,vy:(Math.random()-.5)*.00005});
+ function fr(){bx.clearRect(0,0,bw,bh);var sc=scrollY*.00007;PT.forEach(function(p){if(!RM){p.x+=p.vx;p.y+=p.vy}if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0;p.X=p.x*bw+px*46*p.z;p.Y=(((p.y-sc*p.z*6)%1)+1)%1*bh+py*34*p.z});
+  for(var a=0;a<PT.length;a++){var p=PT[a];bx.beginPath();bx.arc(p.X,p.Y,p.z*1.7,0,6.2832);bx.fillStyle='rgba(130,190,255,'+(.18+.4*p.z)+')';bx.fill();
+   for(var c=a+1;c<PT.length;c++){var q=PT[c],dx=p.X-q.X,dy=p.Y-q.Y,ds=dx*dx+dy*dy;if(ds<14400){bx.beginPath();bx.moveTo(p.X,p.Y);bx.lineTo(q.X,q.Y);bx.strokeStyle='rgba(91,162,255,'+(1-Math.sqrt(ds)/120)*.16+')';bx.lineWidth=1;bx.stroke()}}}}
+ if(RM)fr();else(function lp(){if(!d.hidden)fr();requestAnimationFrame(lp)})()})();
+/* orbe de shader detrás del engranaje */
+(function(){var oc=$('#orb');if(!oc)return;var g=oc.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false,powerPreference:'low-power'});if(!g){oc.style.display='none';return}
+ var vs='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}',fs='precision mediump float;uniform vec2 uR,uM;uniform float uT;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p*=2.03;a*=.5;}return v;}void main(){vec2 p=(gl_FragCoord.xy-.5*uR)/min(uR.x,uR.y)*2.5;float r=length(p);float halo=exp(-r*2.2)*.5*smoothstep(2.45,1.3,r);float cov=smoothstep(1.,.965,r);vec3 col=vec3(0.);if(r<1.){float z=sqrt(1.-r*r);vec3 nr=vec3(p,z);float t=uT*.22;float w=fb(nr.xy*2.3+vec2(t,-t*.6)+fb(nr.xy*3.4-t)*1.5);vec3 L=normalize(vec3(uM.x*1.8+.35,-uM.y*1.8+.45,.85));vec3 nn=normalize(nr+(w-.5)*.5);float dif=max(dot(nn,L),0.);float fr=pow(1.-z,2.2);float sp=pow(max(dot(reflect(-L,nn),vec3(0.,0.,1.)),0.),22.);col=mix(vec3(.01,.05,.28),vec3(.16,.5,1.),w)*(.25+dif*.95)+fr*vec3(.2,.75,1.)*1.1+sp*vec3(.7,.9,1.)*.6;col+=vec3(.1,.8,1.)*pow(w,4.)*.5;}vec3 rgb=col*cov*.85+vec3(.12,.42,1.)*halo*(1.-cov);float al=cov*.85+halo*(1.-cov);gl_FragColor=vec4(rgb,al);}';
+ function sh(t,s){var o=g.createShader(t);g.shaderSource(o,s);g.compileShader(o);return o}
+ var pg3=g.createProgram();g.attachShader(pg3,sh(g.VERTEX_SHADER,vs));g.attachShader(pg3,sh(g.FRAGMENT_SHADER,fs));g.linkProgram(pg3);if(!g.getProgramParameter(pg3,g.LINK_STATUS)){oc.style.display='none';return}g.useProgram(pg3);
+ var bf=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,bf);g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),g.STATIC_DRAW);var al=g.getAttribLocation(pg3,'a');g.enableVertexAttribArray(al);g.vertexAttribPointer(al,2,g.FLOAT,false,0,0);
+ var uR=g.getUniformLocation(pg3,'uR'),uM=g.getUniformLocation(pg3,'uM'),uT=g.getUniformLocation(pg3,'uT'),ov=1;
+ function os(){var r=oc.getBoundingClientRect(),k=Math.min(devicePixelRatio||1,1.5)*.8;oc.width=Math.max(2,Math.round(r.width*k));oc.height=Math.max(2,Math.round(r.height*k))}os();addEventListener('resize',os);
+ function od(t){g.viewport(0,0,oc.width,oc.height);g.clear(g.COLOR_BUFFER_BIT);g.uniform2f(uR,oc.width,oc.height);g.uniform2f(uM,px,py);g.uniform1f(uT,t*.001);g.drawArrays(g.TRIANGLES,0,3)}
+ if('IntersectionObserver' in window)new IntersectionObserver(function(e){ov=e[0].isIntersecting}).observe(oc);
+ if(RM)od(3000);else(function ol(t){if(ov&&!d.hidden)od(t);requestAnimationFrame(ol)})(0)})();
+/* formulario */
+$('#fm').addEventListener('submit',function(e){e.preventDefault();var g=function(i){return d.getElementById(i).value.trim()};
+ var t='Hola ServiHouse, necesito servicio técnico.\nNombre: '+g('a')+'\nEquipo: '+g('b')+(g('c')?'\nProblema: '+g('c'):'')+(g('d')?'\nSector: '+g('d'):'');open('https://wa.me/593939195170?text='+encodeURIComponent(t),'_blank')});
+if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})});
+})();
+</script></body></html>
