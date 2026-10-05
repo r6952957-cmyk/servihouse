@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://servihouse.vercel.app/sitemap.xml
