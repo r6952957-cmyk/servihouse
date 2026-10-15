@@ -79,42 +79,6 @@ export function Services() {
   )
 }
 
-/* ---------- Gallery ---------- */
-const gallery = [
-  ['local-comercial.jpg', 'Instalación comercial', true],
-  ['aire-techo-1.jpg', 'Aire en azotea'],
-  ['generadores.jpg', 'Generadores instalados'],
-  ['galeria-24.jpg', 'Equipos Samsung en azotea', true],
-  ['soldadura.jpg', 'Trabajo de soldadura'],
-  ['galeria-16.jpg', 'Equipos de aire acondicionado'],
-  ['descarga-generador.jpg', 'Descarga de generador', true],
-  ['galeria-19.jpg', 'Reparación de televisor'],
-]
-
-export function Gallery() {
-  return (
-    <section id="trabajos" className="py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="mx-auto mb-14 max-w-xl text-center">
-          <SectionTag>Trabajos realizados</SectionTag>
-          <h2 className="font-display text-[clamp(26px,3.6vw,38px)] font-extrabold text-white">Más allá de la línea blanca</h2>
-          <p className="mt-3 text-[15px] text-slate-400">Climatización, cuartos fríos, generadores y energía solar para hogares y negocios.</p>
-        </Reveal>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" style={{ gridAutoRows: '150px' }}>
-          {gallery.map(([img, alt, tall], i) => (
-            <Reveal key={img} delay={i * 0.04} className={tall ? 'row-span-2' : ''}>
-              <a href={`/assets/${img}`} target="_blank" rel="noopener" data-magnetic className="group relative block h-full overflow-hidden rounded-2xl border border-white/10">
-                <img src={`/assets/${img}`} alt={alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#02040aee] via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ---------- Videos ---------- */
 const videos = [
   ['video-1.mp4', 'poster-1.jpg', 'Aires en azotea'],
