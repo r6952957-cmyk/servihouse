@@ -34,9 +34,9 @@ export default function Hero() {
         <div>
           <motion.div
             variants={fadeUp} custom={0} initial="hidden" animate="show"
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 font-display text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-300"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 font-display text-[11px] font-bold uppercase tracking-[0.12em] text-[#c9c9c4]"
           >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-300 shadow-[0_0_10px_#00e5ff]" />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
             Servicio técnico autorizado en Quito
           </motion.div>
 
@@ -84,11 +84,11 @@ export default function Hero() {
           </Suspense>
 
           <div className="glass absolute -right-4 top-4 flex items-center gap-2.5 rounded-2xl px-4 py-3 sm:-right-8 sm:top-6">
-            <span className="grid h-7 w-7 flex-none place-items-center rounded-[9px] bg-gradient-to-br from-blue-500 to-cyan-400 text-sm">🛡️</span>
+            <span className="grid h-7 w-7 flex-none place-items-center rounded-[9px] bg-white/10 border border-white/15 text-sm">🛡️</span>
             <span className="font-display text-xs font-bold text-white">Garantía por escrito</span>
           </div>
           <div className="glass absolute -left-4 bottom-10 flex items-center gap-2.5 rounded-2xl px-4 py-3 sm:-left-8">
-            <span className="grid h-7 w-7 flex-none place-items-center rounded-[9px] bg-gradient-to-br from-blue-500 to-cyan-400 text-sm">⚡</span>
+            <span className="grid h-7 w-7 flex-none place-items-center rounded-[9px] bg-white/10 border border-white/15 text-sm">⚡</span>
             <span className="font-display text-xs font-bold text-white">Atención el mismo día</span>
           </div>
         </motion.div>

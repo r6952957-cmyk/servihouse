@@ -54,7 +54,7 @@ export function Warranty() {
       <div className="mx-auto max-w-4xl px-6">
         <Reveal className="mx-auto mb-14 max-w-xl text-center">
           <SectionTag>Garantías</SectionTag>
-          <h2 className="font-display text-[clamp(26px,3.6vw,38px)] font-extrabold text-white">Registra tu garantía</h2>
+          <h2 className="font-display text-[clamp(24px,3.2vw,34px)] font-medium tracked-up text-white">Registra tu garantía</h2>
           <p className="mt-3 text-[15px] text-slate-400">Guarda el equipo y la fecha de servicio en este dispositivo y calculamos los días que te quedan.</p>
         </Reveal>
 
@@ -67,7 +67,7 @@ export function Warranty() {
                 onChange={(e) => setEquipo(e.target.value)}
                 placeholder="Ej. Refrigeradora Samsung"
                 required
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-cyan-300/60"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white/40"
               />
             </label>
             <label className="block">
@@ -77,7 +77,7 @@ export function Warranty() {
                 value={fecha}
                 onChange={(e) => setFecha(e.target.value)}
                 required
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-cyan-300/60 [color-scheme:dark]"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-white/40 [color-scheme:dark]"
               />
             </label>
             <label className="block">
@@ -85,7 +85,7 @@ export function Warranty() {
               <select
                 value={parte}
                 onChange={(e) => setParte(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-cyan-300/60"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-white/40"
               >
                 <option value="original" className="bg-[#0a1230]">Original (1 año)</option>
                 <option value="generico" className="bg-[#0a1230]">Genérico (30 días)</option>
@@ -94,7 +94,7 @@ export function Warranty() {
             <button
               type="submit"
               data-magnetic
-              className="rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-2.5 font-display text-xs font-bold text-slate-950 shadow-[0_8px_30px_-6px_rgba(46,139,255,0.6)]"
+              className="rounded-full bg-[#ededea] px-6 py-2.5 font-display text-xs font-bold text-[#0b0b0b]"
             >
               Registrar
             </button>
@@ -115,7 +115,7 @@ export function Warranty() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className={`font-display text-xs font-bold ${expired ? 'text-red-400' : 'text-cyan-300'}`}>
+                    <span className={`font-display text-xs font-bold ${expired ? 'text-red-400' : 'text-[#c9c9c4]'}`}>
                       {expired ? 'Vencida' : `${left} días restantes`}
                     </span>
                     <button onClick={() => remove(w.id)} aria-label="Eliminar" className="text-slate-500 hover:text-red-400">✕</button>

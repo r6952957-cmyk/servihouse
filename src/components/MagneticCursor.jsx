@@ -95,7 +95,7 @@ export default function MagneticCursor() {
       <div
         ref={ringRef}
         data-active="false"
-        className="pointer-events-none fixed left-0 top-0 z-[998] grid h-10 w-10 place-items-center rounded-full border border-cyan-300/70 text-[9px] font-bold uppercase tracking-wider text-cyan-200 transition-[width,height,background-color] duration-200 data-[active=true]:bg-cyan-400/10"
+        className="pointer-events-none fixed left-0 top-0 z-[998] grid h-10 w-10 place-items-center rounded-full border border-white/40 text-[9px] font-bold uppercase tracking-wider text-white transition-[width,height,background-color] duration-200 data-[active=true]:bg-white/10"
         style={{ willChange: 'transform', ['--scale']: 1 }}
       />
     </>

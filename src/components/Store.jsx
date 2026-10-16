@@ -30,7 +30,7 @@ export function Store() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto mb-14 max-w-xl text-center">
           <SectionTag>Tienda</SectionTag>
-          <h2 className="font-display text-[clamp(26px,3.6vw,38px)] font-extrabold text-white">Arma tu cotización</h2>
+          <h2 className="font-display text-[clamp(24px,3.2vw,34px)] font-medium tracked-up text-white">Arma tu cotización</h2>
           <p className="mt-3 text-[15px] text-slate-400">Elige los equipos que necesitas y envíanos tu lista directo por WhatsApp.</p>
         </Reveal>
 
@@ -45,7 +45,7 @@ export function Store() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#02040a] via-[#02040a]/20 to-transparent" />
                   </div>
                   <div className="relative z-10 p-5">
-                    <span className="mb-2.5 inline-grid h-9 w-9 place-items-center rounded-[11px] bg-gradient-to-br from-blue-500 to-cyan-400 text-lg shadow-[0_6px_18px_rgba(46,139,255,0.5)]">{item.icon}</span>
+                    <span className="mb-2.5 inline-grid h-9 w-9 place-items-center rounded-[11px] bg-white/5 border border-white/15 text-lg">{item.icon}</span>
                     <h3 className="font-display text-base font-bold text-white">{item.title}</h3>
                     <p className="mt-1 text-[13px] text-slate-400">{item.desc}</p>
                     <button
@@ -53,7 +53,7 @@ export function Store() {
                       disabled={added}
                       data-magnetic
                       className={`mt-4 w-full rounded-full py-2.5 font-display text-xs font-bold transition-colors ${
-                        added ? 'glass text-cyan-300' : 'bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950'
+                        added ? 'glass text-[#c9c9c4]' : 'bg-[#ededea] text-[#0b0b0b]'
                       }`}
                     >
                       {added ? '✓ Agregado a tu cotización' : 'Agregar a mi cotización'}

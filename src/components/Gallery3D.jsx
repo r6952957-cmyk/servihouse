@@ -15,6 +15,19 @@ const items = [
   ['galeria-03.jpg', 'Montaje de equipos'],
   ['galeria-05.jpg', 'Instalación en local comercial'],
   ['refrigeracion.jpg', 'Mantenimiento de refrigeración'],
+  ['galeria-07.jpg', 'Construcción de cuarto frío'],
+  ['galeria-08.jpg', 'Paneles de cuarto frío'],
+  ['galeria-09.jpg', 'Montaje de unidad evaporadora'],
+  ['galeria-10.jpg', 'Instalación industrial'],
+  ['galeria-11.jpg', 'Conexión de tuberías de refrigeración'],
+  ['galeria-12.jpg', 'Sistema de climatización'],
+  ['galeria-13.jpg', 'Revisión de unidad condensadora'],
+  ['galeria-17.jpg', 'Equipos VRF en azotea'],
+  ['galeria-18.jpg', 'Instalación de ductos'],
+  ['galeria-20.jpg', 'Mantenimiento preventivo'],
+  ['galeria-21.jpg', 'Diagnóstico de placa electrónica'],
+  ['galeria-22.jpg', 'Montaje de panel solar'],
+  ['galeria-23.jpg', 'Trabajo de electricidad'],
 ]
 
 const COUNT = items.length
@@ -138,7 +151,7 @@ export function Gallery3D() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto mb-4 max-w-xl text-center">
           <SectionTag>Trabajos realizados</SectionTag>
-          <h2 className="font-display text-[clamp(26px,3.6vw,38px)] font-extrabold text-white">Arrastra y explora en 3D</h2>
+          <h2 className="font-display text-[clamp(24px,3.2vw,34px)] font-medium tracked-up text-white">Arrastra y explora en 3D</h2>
           <p className="mt-3 text-[15px] text-slate-400">Climatización, cuartos fríos, generadores y energía solar para hogares y negocios.</p>
         </Reveal>
 
@@ -173,7 +186,7 @@ export function Gallery3D() {
                 key={i}
                 onClick={() => goTo(i)}
                 aria-label={`Ir a la foto ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${i === nearest ? 'w-6 bg-cyan-300' : 'w-1.5 bg-white/25'}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${i === nearest ? 'w-6 bg-white/70' : 'w-1.5 bg-white/25'}`}
               />
             ))}
           </div>
