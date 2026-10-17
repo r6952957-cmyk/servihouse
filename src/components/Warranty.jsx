@@ -94,7 +94,7 @@ export function Warranty() {
             <button
               type="submit"
               data-magnetic
-              className="rounded-full bg-[#ededea] px-6 py-2.5 font-display text-xs font-bold text-[#0b0b0b]"
+              className="rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-2.5 font-display text-xs font-bold text-slate-950 shadow-[0_8px_30px_-6px_rgba(46,139,255,0.6)]"
             >
               Registrar
             </button>
@@ -115,7 +115,7 @@ export function Warranty() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className={`font-display text-xs font-bold ${expired ? 'text-red-400' : 'text-[#c9c9c4]'}`}>
+                    <span className={`font-display text-xs font-bold ${expired ? 'text-red-400' : 'text-cyan-300'}`}>
                       {expired ? 'Vencida' : `${left} días restantes`}
                     </span>
                     <button onClick={() => remove(w.id)} aria-label="Eliminar" className="text-slate-500 hover:text-red-400">✕</button>

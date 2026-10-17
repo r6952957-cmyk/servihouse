@@ -14,9 +14,9 @@ function useGlowTexture(size = 512) {
     canvas.height = size
     const ctx = canvas.getContext('2d')
     const grad = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-    grad.addColorStop(0, 'rgba(210,210,205,0.75)')
-    grad.addColorStop(0.35, 'rgba(150,150,145,0.32)')
-    grad.addColorStop(1, 'rgba(40,40,38,0)')
+    grad.addColorStop(0, 'rgba(120,190,255,0.9)')
+    grad.addColorStop(0.35, 'rgba(70,150,255,0.45)')
+    grad.addColorStop(1, 'rgba(20,60,160,0)')
     ctx.fillStyle = grad
     ctx.fillRect(0, 0, size, size)
     const tex = new THREE.CanvasTexture(canvas)
@@ -195,26 +195,26 @@ function Medallion() {
         <mesh ref={outerRing} rotation={[Math.PI / 2.25, 0, 0]}>
           <torusGeometry args={[1.56, 0.1, 32, 140]} />
           <meshPhysicalMaterial
-            color="#c9c9c2"
+            color="#b7cbf2"
             metalness={1}
             roughness={0.14}
             clearcoat={1}
             clearcoatRoughness={0.08}
             reflectivity={1}
-            emissive="#1a1a18"
+            emissive="#0a3a8a"
             emissiveIntensity={0.18}
           />
         </mesh>
         {/* thin glowing accent ring */}
         <mesh ref={innerRing} rotation={[Math.PI / 2.25, 0, 0]}>
           <torusGeometry args={[1.24, 0.024, 16, 140]} />
-          <meshStandardMaterial ref={innerRingMat} color="#e8e4d8" emissive="#b8a878" emissiveIntensity={0.9} metalness={0.4} roughness={0.3} />
+          <meshStandardMaterial ref={innerRingMat} color="#00e5ff" emissive="#00e5ff" emissiveIntensity={1.6} metalness={0.4} roughness={0.3} />
         </mesh>
         {/* medallion face */}
         <group ref={badge}>
           <mesh>
             <circleGeometry args={[1.1, 64]} />
-            <meshPhysicalMaterial color="#0e0e0c" metalness={0.65} roughness={0.32} clearcoat={0.6} />
+            <meshPhysicalMaterial color="#0d1636" metalness={0.65} roughness={0.32} clearcoat={0.6} />
           </mesh>
           {texture && (
             <mesh position={[0, 0, 0.012]}>
@@ -224,7 +224,7 @@ function Medallion() {
           )}
         </group>
       </Float>
-      <Sparkles count={120} scale={4.6} size={3} speed={0.55} color="#d8d8d0" opacity={0.55} />
+      <Sparkles count={120} scale={4.6} size={3} speed={0.55} color="#9df3ff" opacity={0.8} />
     </group>
   )
 }
@@ -245,11 +245,11 @@ function RigLights() {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <pointLight position={[4, 3, 4]} intensity={70} color="#8a8a84" />
-      <pointLight ref={rim} position={[-4, -2, -3]} intensity={50} color="#b8a878" />
-      <pointLight position={[0, 4, -4]} intensity={24} color="#5a5a56" />
+      <pointLight position={[4, 3, 4]} intensity={70} color="#2e8bff" />
+      <pointLight ref={rim} position={[-4, -2, -3]} intensity={50} color="#00e5ff" />
+      <pointLight position={[0, 4, -4]} intensity={24} color="#8b5cf6" />
       <pointLight position={[0, -3, 3]} intensity={16} color="#ffffff" />
-      <spotLight position={[0, 6, 6]} angle={0.5} penumbra={1} intensity={38} color="#e8e4d8" />
+      <spotLight position={[0, 6, 6]} angle={0.5} penumbra={1} intensity={38} color="#dbe8ff" />
     </>
   )
 }

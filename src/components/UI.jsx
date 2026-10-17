@@ -37,8 +37,8 @@ export function Reveal({ children, delay = 0, y = 32, className = '' }) {
 
 export function SectionTag({ children }) {
   return (
-    <div className="mb-4 inline-flex items-center gap-2.5 font-display text-[11px] font-bold tracked-up text-[#c9c9c4]">
-      <span className="h-px w-6 bg-[#c9c9c4]" />
+    <div className="mb-4 inline-flex items-center gap-2.5 font-display text-[11px] font-bold tracked-up text-cyan-300">
+      <span className="h-px w-6 bg-cyan-300" />
       {children}
     </div>
   )

@@ -34,7 +34,7 @@ export default function Hero() {
         <div>
           <motion.div
             variants={fadeUp} custom={0} initial="hidden" animate="show"
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 font-display text-[11px] font-bold uppercase tracking-[0.12em] text-[#c9c9c4]"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 font-display text-[11px] font-bold uppercase tracking-[0.12em] text-cyan-300"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
             Servicio técnico autorizado en Quito

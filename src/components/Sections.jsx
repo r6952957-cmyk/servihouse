@@ -23,7 +23,7 @@ export function WhyUs() {
           {why.map(([n, t, d], i) => (
             <Reveal key={n} delay={i * 0.08}>
               <div className="glass h-full rounded-2xl p-6">
-                <div className="mb-3 font-display text-sm font-bold text-[#c9c9c4]">{n}</div>
+                <div className="mb-3 font-display text-sm font-bold text-cyan-300">{n}</div>
                 <h3 className="mb-1.5 font-display text-base font-bold text-white">{t}</h3>
                 <p className="text-[13px] text-slate-400">{d}</p>
               </div>
@@ -214,7 +214,7 @@ export function FAQ() {
                     className="flex w-full items-center justify-between px-6 py-5 text-left font-display text-[15px] font-bold text-white"
                   >
                     {q}
-                    <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="grid h-6 w-6 flex-none place-items-center rounded-full border border-white/20 text-sm text-[#c9c9c4]">+</motion.span>
+                    <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="grid h-6 w-6 flex-none place-items-center rounded-full border border-white/20 text-sm text-cyan-300">+</motion.span>
                   </button>
                   <AnimatePresence initial={false}>
                     {isOpen && (
@@ -244,10 +244,10 @@ export function CTA() {
     <section className="py-16">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-[#121210] px-8 py-16 text-center">
-            <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(500px 300px at 50% 0%, rgba(255,255,255,0.06), transparent)' }} />
+          <div className="relative overflow-hidden rounded-[28px] border border-blue-400/40 bg-gradient-to-br from-[#0a2a6b] via-[#07163d] to-[#031029] px-8 py-16 text-center shadow-[0_0_80px_-10px_rgba(46,139,255,0.55)]">
+            <div className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(500px 300px at 50% 0%, rgba(0,229,255,0.15), transparent)' }} />
             <h2 className="font-display text-[clamp(22px,3vw,32px)] font-medium tracked-up text-white">¿Tu electrodoméstico falló? Resolvámoslo hoy.</h2>
-            <p className="mx-auto mt-3.5 max-w-md text-[#9a9a94]">Cobertura en Quito y valles aledaños. Escríbenos directo o llámanos.</p>
+            <p className="mx-auto mt-3.5 max-w-md text-[#CBD9FF]">Cobertura en Quito y valles aledaños. Escríbenos directo o llámanos.</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <MagButton href="https://wa.me/593939195170" target="_blank" rel="noopener" variant="primary" label="Chat">💬 Escribir por WhatsApp</MagButton>
               <MagButton href="tel:+593939195170" variant="ghost">📞 0939 195 170</MagButton>
@@ -274,16 +274,16 @@ export function Footer() {
           <div>
             <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wide text-slate-500">Navegación</h4>
             <div className="space-y-2 text-sm text-slate-300">
-              <a href="#servicios" className="block hover:text-[#c9c9c4]">Servicios</a>
-              <a href="#trabajos" className="block hover:text-[#c9c9c4]">Trabajos</a>
-              <a href="#equipo" className="block hover:text-[#c9c9c4]">Equipo</a>
-              <a href="#faq" className="block hover:text-[#c9c9c4]">FAQ</a>
+              <a href="#servicios" className="block hover:text-cyan-300">Servicios</a>
+              <a href="#trabajos" className="block hover:text-cyan-300">Trabajos</a>
+              <a href="#equipo" className="block hover:text-cyan-300">Equipo</a>
+              <a href="#faq" className="block hover:text-cyan-300">FAQ</a>
             </div>
           </div>
           <div>
             <h4 className="mb-3.5 text-[11px] font-bold uppercase tracking-wide text-slate-500">Contacto</h4>
             <div className="space-y-2 text-sm text-slate-300">
-              <a href="tel:+593939195170" className="block hover:text-[#c9c9c4]">📞 0939 195 170</a>
+              <a href="tel:+593939195170" className="block hover:text-cyan-300">📞 0939 195 170</a>
               <span className="block">📍 Quito, Ecuador</span>
               <span className="block">🕐 Lun–Sáb 8:00–18:00</span>
             </div>

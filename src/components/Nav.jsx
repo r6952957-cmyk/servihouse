@@ -22,7 +22,7 @@ export default function Nav() {
           <img src="/assets/logo-icon.jpg" alt="ServiHouse" className="h-7 w-7 rounded-full object-cover" />
           ServiHouse
         </a>
-        <div className="hidden items-center gap-8 font-display text-[11px] font-medium tracked-up text-[#9a9a94] lg:flex">
+        <div className="hidden items-center gap-8 font-display text-[11px] font-medium tracked-up text-slate-300 lg:flex">
           {links.map((l) => (
             <a key={l.href} href={l.href} data-magnetic className="transition-colors hover:text-white">
               {l.label}

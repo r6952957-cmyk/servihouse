@@ -53,7 +53,7 @@ export function Store() {
                       disabled={added}
                       data-magnetic
                       className={`mt-4 w-full rounded-full py-2.5 font-display text-xs font-bold transition-colors ${
-                        added ? 'glass text-[#c9c9c4]' : 'bg-[#ededea] text-[#0b0b0b]'
+                        added ? 'glass text-cyan-300' : 'bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950'
                       }`}
                     >
                       {added ? '✓ Agregado a tu cotización' : 'Agregar a mi cotización'}
