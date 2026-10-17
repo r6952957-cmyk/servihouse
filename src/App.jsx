@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import MagneticCursor from './components/MagneticCursor'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import { WhyUs, Services, Videos, Process, Team, FAQ, Contact, CTA, Footer } from './components/Sections'
+import { WhyUs, Services, Band, Videos, Process, Team, FAQ, Contact, CTA, Footer } from './components/Sections'
 import { Gallery3D } from './components/Gallery3D'
 import { Store } from './components/Store'
 import { Warranty } from './components/Warranty'
@@ -60,6 +60,7 @@ export default function App() {
         <Hero />
         <WhyUs />
         <Services />
+        <Band />
         <Gallery3D />
         <Videos />
         <Process />

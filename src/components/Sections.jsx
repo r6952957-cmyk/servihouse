@@ -79,6 +79,28 @@ export function Services() {
   )
 }
 
+/* ---------- Full-bleed banner ---------- */
+export function Band() {
+  return (
+    <section className="relative overflow-hidden py-28">
+      <img
+        src="/assets/galeria-20.jpg"
+        alt="Cuarto frío de dos cámaras terminado"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#02040a] via-[#02040a]/70 to-[#02040a]/20" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        <Reveal>
+          <SectionTag>Refrigeración industrial</SectionTag>
+          <h2 className="max-w-lg font-display text-[clamp(24px,3.2vw,34px)] font-medium tracked-up text-white">Cuartos fríos que trabajan sin parar</h2>
+          <p className="mt-3 max-w-md text-[15px] text-slate-300">Diseñamos, montamos y damos mantenimiento a cuartos fríos para comercios e industria.</p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 /* ---------- Videos ---------- */
 const videos = [
   ['video-1.mp4', 'poster-1.jpg', 'Aires en azotea'],
