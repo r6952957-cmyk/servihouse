@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 export function MagButton({ as: As = 'a', href, onClick, target, rel, variant = 'primary', className = '', children, label }) {
   const base = 'relative inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-xs font-semibold tracked-up transition-all duration-300 will-change-transform'
   const styles = {
-    primary: 'bg-[#ededea] text-[#0b0b0b] hover:bg-white',
-    ghost: 'border border-white/20 text-white hover:border-white/50 hover:bg-white/5',
+    primary: 'bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-950 shadow-[0_8px_30px_-6px_rgba(46,139,255,0.6)] hover:shadow-[0_12px_40px_-4px_rgba(46,139,255,0.8)]',
+    ghost: 'glass text-white hover:bg-white/10',
   }
   return (
     <As
@@ -37,8 +37,8 @@ export function Reveal({ children, delay = 0, y = 32, className = '' }) {
 
 export function SectionTag({ children }) {
   return (
-    <div className="mb-4 inline-flex items-center gap-2.5 font-display text-[11px] font-medium tracked-up text-[#9a9a94]">
-      <span className="h-px w-6 bg-[#4a4a46]" />
+    <div className="mb-4 inline-flex items-center gap-2.5 font-display text-[11px] font-bold tracked-up text-[#c9c9c4]">
+      <span className="h-px w-6 bg-[#c9c9c4]" />
       {children}
     </div>
   )
@@ -64,11 +64,11 @@ export function TiltCard({ children, className = '', href, magnetic = false, sty
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={style}
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#141412]/80 transition-transform duration-300 ease-out [transform-style:preserve-3d] ${className}`}
+      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0f1d44]/70 to-[#0a1230]/80 transition-transform duration-300 ease-out [transform-style:preserve-3d] ${className}`}
     >
       <span
         className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{ background: 'radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.1), transparent 70%)' }}
+        style={{ background: 'radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(0,229,255,0.18), transparent 70%)' }}
       />
       {children}
     </Tag>
