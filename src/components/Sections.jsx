@@ -238,6 +238,83 @@ export function FAQ() {
   )
 }
 
+/* ---------- Contact ---------- */
+export function Contact() {
+  const [form, setForm] = useState({ nombre: '', equipo: 'Refrigerador', problema: '', sector: '' })
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
+
+  const waLink = (() => {
+    const lines = [
+      `Hola ServiHouse, mi nombre es ${form.nombre || '—'}.`,
+      `Equipo: ${form.equipo}`,
+      form.problema && `Qué le pasa: ${form.problema}`,
+      form.sector && `Sector o dirección: ${form.sector}`,
+    ].filter(Boolean).join('\n')
+    return `https://wa.me/593939195170?text=${encodeURIComponent(lines)}`
+  })()
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    window.open(waLink, '_blank', 'noopener')
+  }
+
+  return (
+    <section id="contacto" className="py-24">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:items-start">
+        <Reveal>
+          <SectionTag>Contacto</SectionTag>
+          <h2 className="font-display text-[clamp(24px,3.2vw,34px)] font-medium tracked-up text-white">¿Tu equipo falló? Hablemos hoy</h2>
+          <p className="mt-3 max-w-sm text-[15px] text-slate-400">Cuéntanos qué pasa y te respondemos por WhatsApp para coordinar la visita.</p>
+          <div className="mt-8 space-y-3">
+            <a href="tel:+593939195170" data-magnetic className="glass flex items-center gap-3 rounded-2xl p-4 transition-colors hover:bg-white/10">
+              <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-cyan-400/10 text-lg">📞</span>
+              <span>
+                <b className="block font-display text-sm font-bold text-white">0939 195 170</b>
+                <span className="text-xs text-slate-400">Ing. Elvis Sevilla</span>
+              </span>
+            </a>
+            <a href="https://wa.me/593939195170" target="_blank" rel="noopener" data-magnetic className="glass flex items-center gap-3 rounded-2xl p-4 transition-colors hover:bg-white/10">
+              <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-cyan-400/10 text-lg">💬</span>
+              <span>
+                <b className="block font-display text-sm font-bold text-white">Escribir por WhatsApp</b>
+                <span className="text-xs text-slate-400">Atención rápida</span>
+              </span>
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <form onSubmit={onSubmit} className="glass space-y-4 rounded-2xl p-6">
+            <label className="block">
+              <span className="mb-1.5 block text-xs font-semibold text-slate-400">Nombre</span>
+              <input value={form.nombre} onChange={set('nombre')} required className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-white/40" />
+            </label>
+            <label className="block">
+              <span className="mb-1.5 block text-xs font-semibold text-slate-400">Equipo</span>
+              <select value={form.equipo} onChange={set('equipo')} className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-white/40">
+                {['Refrigerador', 'Lavadora o secadora', 'Cocina u horno', 'Aire acondicionado', 'Cuarto frío o refrigeración', 'TV o electrónica', 'Otro'].map((o) => (
+                  <option key={o} className="bg-[#0a1230]">{o}</option>
+                ))}
+              </select>
+            </label>
+            <label className="block">
+              <span className="mb-1.5 block text-xs font-semibold text-slate-400">¿Qué le pasa?</span>
+              <textarea value={form.problema} onChange={set('problema')} placeholder="Ej. No enfría, hace ruido, no enciende…" rows={3} className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 outline-none focus:border-white/40" />
+            </label>
+            <label className="block">
+              <span className="mb-1.5 block text-xs font-semibold text-slate-400">Sector o dirección</span>
+              <input value={form.sector} onChange={set('sector')} className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white outline-none focus:border-white/40" />
+            </label>
+            <button type="submit" data-magnetic className="w-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 font-display text-xs font-bold text-slate-950 shadow-[0_8px_30px_-6px_rgba(46,139,255,0.6)]">
+              Enviar solicitud por WhatsApp
+            </button>
+          </form>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 /* ---------- CTA + Footer ---------- */
 export function CTA() {
   return (

@@ -7,6 +7,7 @@ const links = [
   { href: '#tienda', label: 'Tienda' },
   { href: '#garantias', label: 'Garantías' },
   { href: '#faq', label: 'FAQ' },
+  { href: '#contacto', label: 'Contacto' },
 ]
 
 export default function Nav() {
